@@ -46,6 +46,7 @@ alias TCOD_zip_t = void*;
  void TCOD_zip_put_console(TCOD_zip_t zip, const TCOD_console_t val);
  void TCOD_zip_put_data(TCOD_zip_t zip, int nbBytes, const void *data);
  int TCOD_zip_save_to_file(TCOD_zip_t zip, const char *filename);
+uint TCOD_zip_get_current_bytes(TCOD_zip_t zip);
 
 // input interface
  int TCOD_zip_load_from_file(TCOD_zip_t zip, const char *filename);
@@ -57,5 +58,6 @@ alias TCOD_zip_t = void*;
  TCOD_image_t TCOD_zip_get_image(TCOD_zip_t zip);
  TCOD_console_t TCOD_zip_get_console(TCOD_zip_t zip);
  int TCOD_zip_get_data(TCOD_zip_t zip, int nbBytes, void *data);
-
+uint TCOD_zip_get_remaining_bytes(TCOD_zip_t zip);
+void TCOD_zip_skip_bytes(TCOD_zip_t zip, uint nbBytes);
 

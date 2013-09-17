@@ -28,6 +28,7 @@ module amp.tcod.image;
 extern (C):
 
 import amp.tcod.console;
+import amp.tcod.console_types;
 import amp.tcod.color;
 
 alias TCOD_image_t = void*;
@@ -39,6 +40,7 @@ TCOD_image_t TCOD_image_load(const char *filename);
 void TCOD_image_clear(TCOD_image_t image, TCOD_color_t color);
 void TCOD_image_invert(TCOD_image_t image);
 void TCOD_image_hflip(TCOD_image_t image);
+void TCOD_image_rotate90(TCOD_image_t image, int numRotations);
 void TCOD_image_vflip(TCOD_image_t image);
 void TCOD_image_scale(TCOD_image_t image, int neww, int newh);
 void TCOD_image_save(TCOD_image_t image, const char *filename);

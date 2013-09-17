@@ -1,6 +1,6 @@
 /*
-* libtcod 1.5.0
-* Copyright (c) 2008,2009,2010 Jice
+* libtcod 1.5.1
+* Copyright (c) 2008,2009,2010,2012 Jice & Mingos
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -10,13 +10,13 @@
 *     * Redistributions in binary form must reproduce the above copyright
 *       notice, this list of conditions and the following disclaimer in the
 *       documentation and/or other materials provided with the distribution.
-*     * The name of Jice may not be used to endorse or promote products
+*     * The name of Jice or Mingos may not be used to endorse or promote products
 *       derived from this software without specific prior written permission.
 *
-* THIS SOFTWARE IS PROVIDED BY Jice ``AS IS'' AND ANY
+* THIS SOFTWARE IS PROVIDED BY JICE AND MINGOS ``AS IS'' AND ANY
 * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-* DISCLAIMED. IN NO EVENT SHALL Jice BE LIABLE FOR ANY
+* DISCLAIMED. IN NO EVENT SHALL JICE OR MINGOS BE LIABLE FOR ANY
 * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
 * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -27,34 +27,29 @@
 module amp.tcod.noise;
 extern (C):
 
-import amp.tcod.mersenne;
-
 alias TCOD_noise_t = void*;
 
-enum TCOD_NOISE_MAX_OCTAVES			= 128;	
-enum TCOD_NOISE_MAX_DIMENSIONS		= 4;
-enum TCOD_NOISE_DEFAULT_HURST        = 0.5f;
-enum TCOD_NOISE_DEFAULT_LACUNARITY   = 2.0f;
+alias TCOD_noise_type_t = int;
+enum {
+	TCOD_NOISE_PERLIN = 1,
+	TCOD_NOISE_SIMPLEX = 2,
+	TCOD_NOISE_WAVELET = 4,
+	TCOD_NOISE_DEFAULT = 0
+}
 
+import amp.tcod;
+
+/* create a new noise object */
 TCOD_noise_t TCOD_noise_new(int dimensions, float hurst, float lacunarity, TCOD_random_t random);
-// basic perlin noise
-float TCOD_noise_perlin( TCOD_noise_t noise, float *f );
-// fractional brownian motion (fractal sum of perlin noises)
-float TCOD_noise_fbm_perlin( TCOD_noise_t noise, float *f, float octaves );
-// turbulence (fractal sum of abs(perlin noise) )
-float TCOD_noise_turbulence_perlin( TCOD_noise_t noise, float *f, float octaves );
-// simplex noise
-float TCOD_noise_simplex( TCOD_noise_t noise, float *f );
-// fractional brownian motion (fractal sum of simplex noises)
-float TCOD_noise_fbm_simplex( TCOD_noise_t noise, float *f, float octaves );
-// turbulence (fractal sum of abs(simplex noise) )
-float TCOD_noise_turbulence_simplex( TCOD_noise_t noise, float *f, float octaves );
-// wavelet noise
-float TCOD_noise_wavelet (TCOD_noise_t noise, float *f);
-// fractional brownian motion (fractal sum of wavelet noises)
-float TCOD_noise_fbm_wavelet(TCOD_noise_t noise, float *f, float octaves);
-// turbulence (fractal sum of abs(simplex noise) )
-float TCOD_noise_turbulence_wavelet(TCOD_noise_t noise, float *f, float octaves);
 
+/* simplified API */
+void TCOD_noise_set_type (TCOD_noise_t noise, TCOD_noise_type_t type);
+float TCOD_noise_get_ex (TCOD_noise_t noise, float *f, TCOD_noise_type_t type);
+float TCOD_noise_get_fbm_ex (TCOD_noise_t noise, float *f, float octaves, TCOD_noise_type_t type);
+float TCOD_noise_get_turbulence_ex (TCOD_noise_t noise, float *f, float octaves, TCOD_noise_type_t type);
+float TCOD_noise_get (TCOD_noise_t noise, float *f);
+float TCOD_noise_get_fbm (TCOD_noise_t noise, float *f, float octaves);
+float TCOD_noise_get_turbulence (TCOD_noise_t noise, float *f, float octaves);
+/* delete the noise object */
 void TCOD_noise_delete(TCOD_noise_t noise);
 

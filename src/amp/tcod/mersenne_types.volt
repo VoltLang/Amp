@@ -24,34 +24,30 @@
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-module amp.tcod.fov;
+module amp.tcod.mersenne_types;
 extern (C):
 
-alias TCOD_map_t = void*;
+/* dice roll */
+struct TCOD_dice_t {
+	int nb_rolls;
+	int nb_faces;
+	float multiplier;
+	float addsub;
+}
 
-public import amp.tcod.fov_types;
+/* PRNG algorithms */
+alias TCOD_random_algo_t = int;
+enum {
+    TCOD_RNG_MT,
+    TCOD_RNG_CMWC
+}
 
-/* allocate a new map */
-TCOD_map_t TCOD_map_new(int width, int height);
-/* set all cells as solid rock (cannot see through nor walk) */
-void TCOD_map_clear(TCOD_map_t map, bool transparent, bool walkable);
-/* copy a map to another, reallocating it when needed */
-void TCOD_map_copy(TCOD_map_t source, TCOD_map_t dest);
-/* change a cell properties */
-void TCOD_map_set_properties(TCOD_map_t map, int x, int y, bool is_transparent, bool is_walkable);
-/* destroy a map */
-void TCOD_map_delete(TCOD_map_t map);
-
-/* calculate the field of view (potentially visible cells from player_x,player_y) */
-void TCOD_map_compute_fov(TCOD_map_t map, int player_x, int player_y, int max_radius, bool light_walls, TCOD_fov_algorithm_t algo);
-/* check if a cell is in the last computed field of view */
-bool TCOD_map_is_in_fov(TCOD_map_t map, int x, int y);
-void TCOD_map_set_in_fov(TCOD_map_t map, int x, int y, bool fov);
-
-/* retrieve properties from the map */
-bool TCOD_map_is_transparent(TCOD_map_t map, int x, int y);
-bool TCOD_map_is_walkable(TCOD_map_t map, int x, int y);
-int TCOD_map_get_width(TCOD_map_t map);
-int TCOD_map_get_height(TCOD_map_t map);
-int TCOD_map_get_nb_cells(TCOD_map_t map);
+alias TCOD_distribution_t = int;
+enum {
+	TCOD_DISTRIBUTION_LINEAR,
+	TCOD_DISTRIBUTION_GAUSSIAN,
+	TCOD_DISTRIBUTION_GAUSSIAN_RANGE,
+	TCOD_DISTRIBUTION_GAUSSIAN_INVERSE,
+	TCOD_DISTRIBUTION_GAUSSIAN_RANGE_INVERSE
+}
 

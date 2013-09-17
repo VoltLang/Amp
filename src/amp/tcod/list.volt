@@ -41,6 +41,7 @@ void * TCOD_list_get(TCOD_list_t l,int idx);
 void TCOD_list_set(TCOD_list_t l,const void *elt, int idx);
 void ** TCOD_list_begin(TCOD_list_t l);
 void ** TCOD_list_end(TCOD_list_t l);
+void TCOD_list_reverse(TCOD_list_t l);
 void **TCOD_list_remove_iterator(TCOD_list_t l, void **elt);
 void TCOD_list_remove(TCOD_list_t l, const void * elt);
 void **TCOD_list_remove_iterator_fast(TCOD_list_t l, void **elt);

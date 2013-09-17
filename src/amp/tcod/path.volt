@@ -43,6 +43,7 @@ void TCOD_path_get(TCOD_path_t path, int index, int *x, int *y);
 void TCOD_path_get_origin(TCOD_path_t path, int *x, int *y);
 void TCOD_path_get_destination(TCOD_path_t path, int *x, int *y);
 void TCOD_path_delete(TCOD_path_t path);
+void TCOD_path_reverse(TCOD_path_t path);
 
 /* Dijkstra stuff - by Mingos*/
 
@@ -58,4 +59,5 @@ int TCOD_dijkstra_size(TCOD_dijkstra_t path);
 void TCOD_dijkstra_get(TCOD_dijkstra_t path, int index, int *x, int *y);
 bool TCOD_dijkstra_path_walk (TCOD_dijkstra_t dijkstra, int *x, int *y);
 void TCOD_dijkstra_delete (TCOD_dijkstra_t dijkstra);
+void TCOD_dijkstra_reverse(TCOD_dijkstra_t path);
 

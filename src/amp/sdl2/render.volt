@@ -19,6 +19,7 @@
   3. This notice may not be removed or altered from any source distribution.
 */
 module amp.sdl2.render;
+extern (C):
 
 /**
  *  \file SDL_render.h

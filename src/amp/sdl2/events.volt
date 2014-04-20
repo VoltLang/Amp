@@ -176,7 +176,7 @@ struct SDL_KeyboardEvent
     Uint8 repeat;       /**< Non-zero if this is a key repeat */
     Uint8 padding2;
     Uint8 padding3;
-    int keysym;  /**< The key that was pressed or released */
+    SDL_Keysym keysym;  /**< The key that was pressed or released */
 }
 
 enum SDL_TEXTEDITINGEVENT_TEXT_SIZE = (32);

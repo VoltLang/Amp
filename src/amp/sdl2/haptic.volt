@@ -21,7 +21,7 @@
 module amp.sdl2.haptic;
 extern (C):
 
-/**
+/*
  *  \file SDL_haptic.h
  *
  *  \brief The SDL Haptic subsystem allows you to control haptic (force feedback)
@@ -425,8 +425,8 @@ enum SDL_HAPTIC_SPHERICAL = 2;
  */
 struct SDL_HapticDirection
 {
-    Uint8 type;         /**< The type of encoding. */
-    Sint32[3] dir;      /**< The encoded direction. */
+    Uint8 type;         /*< The type of encoding. */
+    Sint32[3] dir;      /*< The encoded direction. */
 }
 
 
@@ -444,25 +444,25 @@ struct SDL_HapticDirection
 struct SDL_HapticConstant
 {
     /* Header */
-    Uint16 type;            /**< ::SDL_HAPTIC_CONSTANT */
-    SDL_HapticDirection direction;  /**< Direction of the effect. */
+    Uint16 type;            /*< ::SDL_HAPTIC_CONSTANT */
+    SDL_HapticDirection direction;  /*< Direction of the effect. */
 
     /* Replay */
-    Uint32 length;          /**< Duration of the effect. */
-    Uint16 delay;           /**< Delay before starting the effect. */
+    Uint32 length;          /*< Duration of the effect. */
+    Uint16 delay;           /*< Delay before starting the effect. */
 
     /* Trigger */
-    Uint16 button;          /**< Button that triggers the effect. */
-    Uint16 interval;        /**< How soon it can be triggered again after button. */
+    Uint16 button;          /*< Button that triggers the effect. */
+    Uint16 interval;        /*< How soon it can be triggered again after button. */
 
     /* Constant */
-    Sint16 level;           /**< Strength of the constant effect. */
+    Sint16 level;           /*< Strength of the constant effect. */
 
     /* Envelope */
-    Uint16 attack_length;   /**< Duration of the attack. */
-    Uint16 attack_level;    /**< Level at the start of the attack. */
-    Uint16 fade_length;     /**< Duration of the fade. */
-    Uint16 fade_level;      /**< Level at the end of the fade. */
+    Uint16 attack_length;   /*< Duration of the attack. */
+    Uint16 attack_level;    /*< Level at the start of the attack. */
+    Uint16 fade_length;     /*< Duration of the fade. */
+    Uint16 fade_level;      /*< Level at the end of the fade. */
 }
 
 /**
@@ -525,30 +525,30 @@ struct SDL_HapticConstant
 struct SDL_HapticPeriodic
 {
     /* Header */
-    Uint16 type;        /**< ::SDL_HAPTIC_SINE, ::SDL_HAPTIC_SQUARE,
+    Uint16 type;        /*< ::SDL_HAPTIC_SINE, ::SDL_HAPTIC_SQUARE,
                              ::SDL_HAPTIC_TRIANGLE, ::SDL_HAPTIC_SAWTOOTHUP or
                              ::SDL_HAPTIC_SAWTOOTHDOWN */
-    SDL_HapticDirection direction;  /**< Direction of the effect. */
+    SDL_HapticDirection direction;  /*< Direction of the effect. */
 
     /* Replay */
-    Uint32 length;      /**< Duration of the effect. */
-    Uint16 delay;       /**< Delay before starting the effect. */
+    Uint32 length;      /*< Duration of the effect. */
+    Uint16 delay;       /*< Delay before starting the effect. */
 
     /* Trigger */
-    Uint16 button;      /**< Button that triggers the effect. */
-    Uint16 interval;    /**< How soon it can be triggered again after button. */
+    Uint16 button;      /*< Button that triggers the effect. */
+    Uint16 interval;    /*< How soon it can be triggered again after button. */
 
     /* Periodic */
-    Uint16 period;      /**< Period of the wave. */
-    Sint16 magnitude;   /**< Peak value. */
-    Sint16 offset;      /**< Mean value of the wave. */
-    Uint16 phase;       /**< Horizontal shift given by hundredth of a cycle. */
+    Uint16 period;      /*< Period of the wave. */
+    Sint16 magnitude;   /*< Peak value. */
+    Sint16 offset;      /*< Mean value of the wave. */
+    Uint16 phase;       /*< Horizontal shift given by hundredth of a cycle. */
 
     /* Envelope */
-    Uint16 attack_length;   /**< Duration of the attack. */
-    Uint16 attack_level;    /**< Level at the start of the attack. */
-    Uint16 fade_length; /**< Duration of the fade. */
-    Uint16 fade_level;  /**< Level at the end of the fade. */
+    Uint16 attack_length;   /*< Duration of the attack. */
+    Uint16 attack_level;    /*< Level at the start of the attack. */
+    Uint16 fade_length; /*< Duration of the fade. */
+    Uint16 fade_level;  /*< Level at the end of the fade. */
 }
 
 /**
@@ -578,25 +578,25 @@ struct SDL_HapticPeriodic
 struct SDL_HapticCondition
 {
     /* Header */
-    Uint16 type;            /**< ::SDL_HAPTIC_SPRING, ::SDL_HAPTIC_DAMPER,
+    Uint16 type;            /*< ::SDL_HAPTIC_SPRING, ::SDL_HAPTIC_DAMPER,
                                  ::SDL_HAPTIC_INERTIA or ::SDL_HAPTIC_FRICTION */
-    SDL_HapticDirection direction;  /**< Direction of the effect - Not used ATM. */
+    SDL_HapticDirection direction;  /*< Direction of the effect - Not used ATM. */
 
     /* Replay */
-    Uint32 length;          /**< Duration of the effect. */
-    Uint16 delay;           /**< Delay before starting the effect. */
+    Uint32 length;          /*< Duration of the effect. */
+    Uint16 delay;           /*< Delay before starting the effect. */
 
     /* Trigger */
-    Uint16 button;          /**< Button that triggers the effect. */
-    Uint16 interval;        /**< How soon it can be triggered again after button. */
+    Uint16 button;          /*< Button that triggers the effect. */
+    Uint16 interval;        /*< How soon it can be triggered again after button. */
 
     /* Condition */
-    Uint16[3] right_sat;    /**< Level when joystick is to the positive side. */
-    Uint16[3] left_sat;     /**< Level when joystick is to the negative side. */
-    Sint16[3] right_coeff;  /**< How fast to increase the force towards the positive side. */
-    Sint16[3] left_coeff;   /**< How fast to increase the force towards the negative side. */
-    Uint16[3] deadband;     /**< Size of the dead zone. */
-    Sint16[3] center;       /**< Position of the dead zone. */
+    Uint16[3] right_sat;    /*< Level when joystick is to the positive side. */
+    Uint16[3] left_sat;     /*< Level when joystick is to the negative side. */
+    Sint16[3] right_coeff;  /*< How fast to increase the force towards the positive side. */
+    Sint16[3] left_coeff;   /*< How fast to increase the force towards the negative side. */
+    Uint16[3] deadband;     /*< Size of the dead zone. */
+    Sint16[3] center;       /*< Position of the dead zone. */
 }
 
 /**
@@ -615,26 +615,26 @@ struct SDL_HapticCondition
 struct SDL_HapticRamp
 {
     /* Header */
-    Uint16 type;            /**< ::SDL_HAPTIC_RAMP */
-    SDL_HapticDirection direction;  /**< Direction of the effect. */
+    Uint16 type;            /*< ::SDL_HAPTIC_RAMP */
+    SDL_HapticDirection direction;  /*< Direction of the effect. */
 
     /* Replay */
-    Uint32 length;          /**< Duration of the effect. */
-    Uint16 delay;           /**< Delay before starting the effect. */
+    Uint32 length;          /*< Duration of the effect. */
+    Uint16 delay;           /*< Delay before starting the effect. */
 
     /* Trigger */
-    Uint16 button;          /**< Button that triggers the effect. */
-    Uint16 interval;        /**< How soon it can be triggered again after button. */
+    Uint16 button;          /*< Button that triggers the effect. */
+    Uint16 interval;        /*< How soon it can be triggered again after button. */
 
     /* Ramp */
-    Sint16 start;           /**< Beginning strength level. */
-    Sint16 end;             /**< Ending strength level. */
+    Sint16 start;           /*< Beginning strength level. */
+    Sint16 end;             /*< Ending strength level. */
 
     /* Envelope */
-    Uint16 attack_length;   /**< Duration of the attack. */
-    Uint16 attack_level;    /**< Level at the start of the attack. */
-    Uint16 fade_length;     /**< Duration of the fade. */
-    Uint16 fade_level;      /**< Level at the end of the fade. */
+    Uint16 attack_length;   /*< Duration of the attack. */
+    Uint16 attack_level;    /*< Level at the start of the attack. */
+    Uint16 fade_length;     /*< Duration of the fade. */
+    Uint16 fade_level;      /*< Level at the end of the fade. */
 }
 
 /**
@@ -653,28 +653,28 @@ struct SDL_HapticRamp
 struct SDL_HapticCustom
 {
     /* Header */
-    Uint16 type;            /**< ::SDL_HAPTIC_CUSTOM */
-    SDL_HapticDirection direction;  /**< Direction of the effect. */
+    Uint16 type;            /*< ::SDL_HAPTIC_CUSTOM */
+    SDL_HapticDirection direction;  /*< Direction of the effect. */
 
     /* Replay */
-    Uint32 length;          /**< Duration of the effect. */
-    Uint16 delay;           /**< Delay before starting the effect. */
+    Uint32 length;          /*< Duration of the effect. */
+    Uint16 delay;           /*< Delay before starting the effect. */
 
     /* Trigger */
-    Uint16 button;          /**< Button that triggers the effect. */
-    Uint16 interval;        /**< How soon it can be triggered again after button. */
+    Uint16 button;          /*< Button that triggers the effect. */
+    Uint16 interval;        /*< How soon it can be triggered again after button. */
 
     /* Custom */
-    Uint8 channels;         /**< Axes to use, minimum of one. */
-    Uint16 period;          /**< Sample periods. */
-    Uint16 samples;         /**< Amount of samples. */
-    Uint16 *data;           /**< Should contain channels*samples items. */
+    Uint8 channels;         /*< Axes to use, minimum of one. */
+    Uint16 period;          /*< Sample periods. */
+    Uint16 samples;         /*< Amount of samples. */
+    Uint16 *data;           /*< Should contain channels*samples items. */
 
     /* Envelope */
-    Uint16 attack_length;   /**< Duration of the attack. */
-    Uint16 attack_level;    /**< Level at the start of the attack. */
-    Uint16 fade_length;     /**< Duration of the fade. */
-    Uint16 fade_level;      /**< Level at the end of the fade. */
+    Uint16 attack_length;   /*< Duration of the attack. */
+    Uint16 attack_level;    /*< Level at the start of the attack. */
+    Uint16 fade_length;     /*< Duration of the fade. */
+    Uint16 fade_level;      /*< Level at the end of the fade. */
 }
 
 /**
@@ -748,12 +748,12 @@ struct SDL_HapticCustom
 union SDL_HapticEffect
 {
     /* Common for all force feedback effects */
-    Uint16 type;                    /**< Effect type. */
-    SDL_HapticConstant constant;    /**< Constant effect. */
-    SDL_HapticPeriodic periodic;    /**< Periodic effect. */
-    SDL_HapticCondition condition;  /**< Condition effect. */
-    SDL_HapticRamp ramp;            /**< Ramp effect. */
-    SDL_HapticCustom custom;        /**< Custom effect. */
+    Uint16 type;                    /*< Effect type. */
+    SDL_HapticConstant constant;    /*< Constant effect. */
+    SDL_HapticPeriodic periodic;    /*< Periodic effect. */
+    SDL_HapticCondition condition;  /*< Condition effect. */
+    SDL_HapticRamp ramp;            /*< Ramp effect. */
+    SDL_HapticCustom custom;        /*< Custom effect. */
 }
 
 

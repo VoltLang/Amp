@@ -21,7 +21,7 @@
 module amp.sdl2.hints;
 extern (C):
 
-/**
+/*
  *  \file SDL_hints.h
  *
  *  Official documentation for SDL configuration variables

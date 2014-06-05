@@ -21,7 +21,7 @@
 module amp.sdl2.loadso;
 extern (C):
 
-/**
+/*
  *  \file SDL_loadso.h
  *
  *  System dependent library loading routines

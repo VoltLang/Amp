@@ -21,7 +21,7 @@
 module amp.sdl2.surface;
 extern (C):
 
-/**
+/*
  *  \file SDL_surface.h
  *
  *  Header file for ::SDL_Surface definition and management functions.
@@ -61,27 +61,27 @@ enum SDL_DONTFREE = 0x00000004;
  */
 struct SDL_Surface
 {
-    Uint32 flags;               /**< Read-only */
-    SDL_PixelFormat *format;    /**< Read-only */
-    int w, h;                   /**< Read-only */
-    int pitch;                  /**< Read-only */
-    void *pixels;               /**< Read-write */
+    Uint32 flags;               /*< Read-only */
+    SDL_PixelFormat *format;    /*< Read-only */
+    int w, h;                   /*< Read-only */
+    int pitch;                  /*< Read-only */
+    void *pixels;               /*< Read-write */
 
     /** Application data associated with the surface */
-    void *userdata;             /**< Read-write */
+    void *userdata;             /*< Read-write */
 
     /** information needed for surfaces requiring locks */
-    int locked;                 /**< Read-only */
-    void *lock_data;            /**< Read-only */
+    int locked;                 /*< Read-only */
+    void *lock_data;            /*< Read-only */
 
     /** clipping information */
-    SDL_Rect clip_rect;         /**< Read-only */
+    SDL_Rect clip_rect;         /*< Read-only */
 
     /** info for fast blit mapping to other surfaces */
-    void *map;    /**< Private */
+    void *map;    /*< Private */
 
     /** Reference count -- used when freeing surface */
-    int refcount;               /**< Read-mostly */
+    int refcount;               /*< Read-mostly */
 }
 
 /**

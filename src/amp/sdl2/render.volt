@@ -21,7 +21,7 @@
 module amp.sdl2.render;
 extern (C):
 
-/**
+/*
  *  \file SDL_render.h
  *
  *  Header file for SDL 2D rendering functions.
@@ -56,12 +56,12 @@ import amp.sdl2.blendmode;
 alias SDL_RendererFlags = int;
 enum : SDL_RendererFlags
 {
-    SDL_RENDERER_SOFTWARE = 0x00000001,         /**< The renderer is a software fallback */
-    SDL_RENDERER_ACCELERATED = 0x00000002,      /**< The renderer uses hardware
+    SDL_RENDERER_SOFTWARE = 0x00000001,         /*< The renderer is a software fallback */
+    SDL_RENDERER_ACCELERATED = 0x00000002,      /*< The renderer uses hardware
                                                      acceleration */
-    SDL_RENDERER_PRESENTVSYNC = 0x00000004,     /**< Present is synchronized
+    SDL_RENDERER_PRESENTVSYNC = 0x00000004,     /*< Present is synchronized
                                                      with the refresh rate */
-    SDL_RENDERER_TARGETTEXTURE = 0x00000008     /**< The renderer supports
+    SDL_RENDERER_TARGETTEXTURE = 0x00000008     /*< The renderer supports
                                                      rendering to texture */
 }
 
@@ -70,12 +70,12 @@ enum : SDL_RendererFlags
  */
 struct SDL_RendererInfo
 {
-    const char *name;           /**< The name of the renderer */
-    Uint32 flags;               /**< Supported ::SDL_RendererFlags */
-    Uint32 num_texture_formats; /**< The number of available texture formats */
-    Uint32[16] texture_formats; /**< The available texture formats */
-    int max_texture_width;      /**< The maximimum texture width */
-    int max_texture_height;     /**< The maximimum texture height */
+    const char *name;           /*< The name of the renderer */
+    Uint32 flags;               /*< Supported ::SDL_RendererFlags */
+    Uint32 num_texture_formats; /*< The number of available texture formats */
+    Uint32[16] texture_formats; /*< The available texture formats */
+    int max_texture_width;      /*< The maximimum texture width */
+    int max_texture_height;     /*< The maximimum texture height */
 }
 
 /**
@@ -84,9 +84,9 @@ struct SDL_RendererInfo
 alias SDL_TextureAccess = int;
 enum : SDL_TextureAccess
 {
-    SDL_TEXTUREACCESS_STATIC,    /**< Changes rarely, not lockable */
-    SDL_TEXTUREACCESS_STREAMING, /**< Changes frequently, lockable */
-    SDL_TEXTUREACCESS_TARGET     /**< Texture can be used as a render target */
+    SDL_TEXTUREACCESS_STATIC,    /*< Changes rarely, not lockable */
+    SDL_TEXTUREACCESS_STREAMING, /*< Changes frequently, lockable */
+    SDL_TEXTUREACCESS_TARGET     /*< Texture can be used as a render target */
 }
 
 /**
@@ -95,9 +95,9 @@ enum : SDL_TextureAccess
 alias SDL_TextureModulate = int;
 enum : SDL_TextureModulate
 {
-    SDL_TEXTUREMODULATE_NONE = 0x00000000,     /**< No modulation */
-    SDL_TEXTUREMODULATE_COLOR = 0x00000001,    /**< srcC = srcC * color */
-    SDL_TEXTUREMODULATE_ALPHA = 0x00000002     /**< srcA = srcA * alpha */
+    SDL_TEXTUREMODULATE_NONE = 0x00000000,     /*< No modulation */
+    SDL_TEXTUREMODULATE_COLOR = 0x00000001,    /*< srcC = srcC * color */
+    SDL_TEXTUREMODULATE_ALPHA = 0x00000002     /*< srcA = srcA * alpha */
 }
 
 /**
@@ -106,9 +106,9 @@ enum : SDL_TextureModulate
 alias SDL_RendererFlip = int;
 enum : SDL_RendererFlip
 {
-    SDL_FLIP_NONE = 0x00000000,     /**< Do not flip */
-    SDL_FLIP_HORIZONTAL = 0x00000001,    /**< flip horizontally */
-    SDL_FLIP_VERTICAL = 0x00000002     /**< flip vertically */
+    SDL_FLIP_NONE = 0x00000000,     /*< Do not flip */
+    SDL_FLIP_HORIZONTAL = 0x00000001,    /*< flip horizontally */
+    SDL_FLIP_VERTICAL = 0x00000002     /*< flip vertically */
 }
 
 /**

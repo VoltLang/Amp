@@ -21,7 +21,7 @@
 module amp.sdl2.video;
 extern (C):
 
-/**
+/*
  *  \file SDL_video.h
  *
  *  Header file for SDL video functions.
@@ -45,14 +45,14 @@ import amp.sdl2.surface;
  */
 struct SDL_DisplayMode
 {
-	Uint32 format;			  /**< pixel format */
-	int w;					  /**< width */
-	int h;					  /**< height */
-	int refresh_rate;		   /**< refresh rate (or zero for unspecified) */
-	void *driverdata;		   /**< driver-specific data, initialize to 0 */
+	Uint32 format;			  /*< pixel format */
+	int w;					  /*< width */
+	int h;					  /*< height */
+	int refresh_rate;		   /*< refresh rate (or zero for unspecified) */
+	void *driverdata;		   /*< driver-specific data, initialize to 0 */
 } 
 
-/**
+/*
  *  \brief The type used to identify a window
  *
  *  \sa SDL_CreateWindow()
@@ -91,19 +91,19 @@ struct SDL_Window
 alias SDL_WindowFlags = int;
 enum : SDL_WindowFlags
 {
-	SDL_WINDOW_FULLSCREEN = 0x00000001,		 /**< fullscreen window */
-	SDL_WINDOW_OPENGL = 0x00000002,			 /**< window usable with OpenGL context */
-	SDL_WINDOW_SHOWN = 0x00000004,			  /**< window is visible */
-	SDL_WINDOW_HIDDEN = 0x00000008,			 /**< window is not visible */
-	SDL_WINDOW_BORDERLESS = 0x00000010,		 /**< no window decoration */
-	SDL_WINDOW_RESIZABLE = 0x00000020,		  /**< window can be resized */
-	SDL_WINDOW_MINIMIZED = 0x00000040,		  /**< window is minimized */
-	SDL_WINDOW_MAXIMIZED = 0x00000080,		  /**< window is maximized */
-	SDL_WINDOW_INPUT_GRABBED = 0x00000100,	  /**< window has grabbed input focus */
-	SDL_WINDOW_INPUT_FOCUS = 0x00000200,		/**< window has input focus */
-	SDL_WINDOW_MOUSE_FOCUS = 0x00000400,		/**< window has mouse focus */
+	SDL_WINDOW_FULLSCREEN = 0x00000001,		 /*< fullscreen window */
+	SDL_WINDOW_OPENGL = 0x00000002,			 /*< window usable with OpenGL context */
+	SDL_WINDOW_SHOWN = 0x00000004,			  /*< window is visible */
+	SDL_WINDOW_HIDDEN = 0x00000008,			 /*< window is not visible */
+	SDL_WINDOW_BORDERLESS = 0x00000010,		 /*< no window decoration */
+	SDL_WINDOW_RESIZABLE = 0x00000020,		  /*< window can be resized */
+	SDL_WINDOW_MINIMIZED = 0x00000040,		  /*< window is minimized */
+	SDL_WINDOW_MAXIMIZED = 0x00000080,		  /*< window is maximized */
+	SDL_WINDOW_INPUT_GRABBED = 0x00000100,	  /*< window has grabbed input focus */
+	SDL_WINDOW_INPUT_FOCUS = 0x00000200,		/*< window has input focus */
+	SDL_WINDOW_MOUSE_FOCUS = 0x00000400,		/*< window has mouse focus */
 	SDL_WINDOW_FULLSCREEN_DESKTOP = ( SDL_WINDOW_FULLSCREEN | 0x00001000 ),
-	SDL_WINDOW_FOREIGN = 0x00000800			 /**< window not created by SDL */
+	SDL_WINDOW_FOREIGN = 0x00000800			 /*< window not created by SDL */
 }
 
 /**
@@ -128,24 +128,24 @@ bool SDL_WINDOWPOS_ISCENTERED(int X) { return (X & 0xFFFF0000) == SDL_WINDOWPOS_
 alias SDL_WindowEventID = int;
 enum : SDL_WindowEventID
 {
-	SDL_WINDOWEVENT_NONE,		   /**< Never used */
-	SDL_WINDOWEVENT_SHOWN,		  /**< Window has been shown */
-	SDL_WINDOWEVENT_HIDDEN,		 /**< Window has been hidden */
-	SDL_WINDOWEVENT_EXPOSED,		/**< Window has been exposed and should be
+	SDL_WINDOWEVENT_NONE,		   /*< Never used */
+	SDL_WINDOWEVENT_SHOWN,		  /*< Window has been shown */
+	SDL_WINDOWEVENT_HIDDEN,		 /*< Window has been hidden */
+	SDL_WINDOWEVENT_EXPOSED,		/*< Window has been exposed and should be
 										 redrawn */
-	SDL_WINDOWEVENT_MOVED,		  /**< Window has been moved to data1, data2
+	SDL_WINDOWEVENT_MOVED,		  /*< Window has been moved to data1, data2
 									 */
-	SDL_WINDOWEVENT_RESIZED,		/**< Window has been resized to data1xdata2 */
-	SDL_WINDOWEVENT_SIZE_CHANGED,   /**< The window size has changed, either as a result of an API call or through the system or user changing the window size. */
-	SDL_WINDOWEVENT_MINIMIZED,	  /**< Window has been minimized */
-	SDL_WINDOWEVENT_MAXIMIZED,	  /**< Window has been maximized */
-	SDL_WINDOWEVENT_RESTORED,	   /**< Window has been restored to normal size
+	SDL_WINDOWEVENT_RESIZED,		/*< Window has been resized to data1xdata2 */
+	SDL_WINDOWEVENT_SIZE_CHANGED,   /*< The window size has changed, either as a result of an API call or through the system or user changing the window size. */
+	SDL_WINDOWEVENT_MINIMIZED,	  /*< Window has been minimized */
+	SDL_WINDOWEVENT_MAXIMIZED,	  /*< Window has been maximized */
+	SDL_WINDOWEVENT_RESTORED,	   /*< Window has been restored to normal size
 										 and position */
-	SDL_WINDOWEVENT_ENTER,		  /**< Window has gained mouse focus */
-	SDL_WINDOWEVENT_LEAVE,		  /**< Window has lost mouse focus */
-	SDL_WINDOWEVENT_FOCUS_GAINED,   /**< Window has gained keyboard focus */
-	SDL_WINDOWEVENT_FOCUS_LOST,	 /**< Window has lost keyboard focus */
-	SDL_WINDOWEVENT_CLOSE		   /**< The window manager requests that the
+	SDL_WINDOWEVENT_ENTER,		  /*< Window has gained mouse focus */
+	SDL_WINDOWEVENT_LEAVE,		  /*< Window has lost mouse focus */
+	SDL_WINDOWEVENT_FOCUS_GAINED,   /*< Window has gained keyboard focus */
+	SDL_WINDOWEVENT_FOCUS_LOST,	 /*< Window has lost keyboard focus */
+	SDL_WINDOWEVENT_CLOSE		   /*< The window manager requests that the
 										 window be closed */
 }
 

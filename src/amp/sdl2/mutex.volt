@@ -22,7 +22,7 @@ module amp.sdl2.mutex;
 extern (C):
 
 
-/**
+/*
  *  \file SDL_mutex.h
  *
  *  Functions to provide thread synchronization primitives.

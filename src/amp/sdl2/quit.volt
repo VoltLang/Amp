@@ -21,7 +21,7 @@
 module amp.sdl2.quit;
 extern (C):
 
-/**
+/*
  *  \file SDL_quit.h
  *
  *  Include file for SDL quit event handling.

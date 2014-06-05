@@ -22,7 +22,7 @@ module amp.sdl2.log;
 extern (C):
 
 
-/**
+/*
  *  \file SDL_log.h
  *
  *  Simple log messages with categories and priorities.

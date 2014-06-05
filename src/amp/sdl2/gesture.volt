@@ -21,7 +21,7 @@
 module amp.sdl2.gesture;
 extern (C):
 
-/**
+/*
  *  \file SDL_gesture.h
  *
  *  Include file for SDL gesture event handling.

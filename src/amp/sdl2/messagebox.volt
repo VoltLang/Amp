@@ -30,9 +30,9 @@ import amp.sdl2.video;
 alias SDL_MessageBoxFlags = int;
 enum : SDL_MessageBoxFlags
 {
-    SDL_MESSAGEBOX_ERROR        = 0x00000010,   /**< error dialog */
-    SDL_MESSAGEBOX_WARNING      = 0x00000020,   /**< warning dialog */
-    SDL_MESSAGEBOX_INFORMATION  = 0x00000040    /**< informational dialog */
+    SDL_MESSAGEBOX_ERROR        = 0x00000010,   /*< error dialog */
+    SDL_MESSAGEBOX_WARNING      = 0x00000020,   /*< warning dialog */
+    SDL_MESSAGEBOX_INFORMATION  = 0x00000040    /*< informational dialog */
 }
 
 /**
@@ -41,8 +41,8 @@ enum : SDL_MessageBoxFlags
 alias SDL_MessageBoxButtonFlags = int;
 enum : SDL_MessageBoxButtonFlags
 {
-    SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT = 0x00000001,  /**< Marks the default button when return is hit */
-    SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = 0x00000002   /**< Marks the default button when escape is hit */
+    SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT = 0x00000001,  /*< Marks the default button when return is hit */
+    SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = 0x00000002   /*< Marks the default button when escape is hit */
 }
 
 /**
@@ -50,9 +50,9 @@ enum : SDL_MessageBoxButtonFlags
  */
 struct SDL_MessageBoxButtonData
 {
-    Uint32 flags;       /**< ::SDL_MessageBoxButtonFlags */
-    int buttonid;       /**< User defined button id (value returned via SDL_ShowMessageBox) */
-    const char * text;  /**< The UTF-8 button text */
+    Uint32 flags;       /*< ::SDL_MessageBoxButtonFlags */
+    int buttonid;       /*< User defined button id (value returned via SDL_ShowMessageBox) */
+    const char * text;  /*< The UTF-8 button text */
 }
 
 /**
@@ -87,15 +87,15 @@ struct SDL_MessageBoxColorScheme
  */
 struct SDL_MessageBoxData
 {
-    Uint32 flags;                       /**< ::SDL_MessageBoxFlags */
-    SDL_Window *window;                 /**< Parent window, can be NULL */
-    const char *title;                  /**< UTF-8 title */
-    const char *message;                /**< UTF-8 message text */
+    Uint32 flags;                       /*< ::SDL_MessageBoxFlags */
+    SDL_Window *window;                 /*< Parent window, can be NULL */
+    const char *title;                  /*< UTF-8 title */
+    const char *message;                /*< UTF-8 message text */
 
     int numbuttons;
     const SDL_MessageBoxButtonData *buttons;
 
-    const SDL_MessageBoxColorScheme *colorScheme;   /**< ::SDL_MessageBoxColorScheme, can be NULL to use system settings */
+    const SDL_MessageBoxColorScheme *colorScheme;   /*< ::SDL_MessageBoxColorScheme, can be NULL to use system settings */
 }
 
 /**

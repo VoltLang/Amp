@@ -21,7 +21,7 @@
 module amp.sdl2.rwops;
 extern (C):
 
-/**
+/*
  *  \file SDL_rwops.h
  *
  *  This file provides a general interface for SDL to read and write

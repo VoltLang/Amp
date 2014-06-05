@@ -21,7 +21,7 @@
 module amp.sdl2.gamecontroller;
 extern (C):
 
-/**
+/*
  *  \file SDL_gamecontroller.h
  *
  *  Include file for SDL game controller event handling

@@ -21,7 +21,7 @@
 module amp.sdl2.audio;
 extern (C):
 
-/**
+/*
  *  \file SDL_audio.h
  *
  *  Access to the raw audio mixing buffer for the SDL library.
@@ -79,12 +79,12 @@ bool SDL_AUDIO_ISUNSIGNED(int x) { return !SDL_AUDIO_ISSIGNED(x); }
  *  Defaults to LSB byte order.
  */
 /*@{*/
-enum AUDIO_U8 = 0x0008  /**< Unsigned 8-bit samples */;
-enum AUDIO_S8 = 0x8008  /**< Signed 8-bit samples */;
-enum AUDIO_U16LSB = 0x0010  /**< Unsigned 16-bit samples */;
-enum AUDIO_S16LSB = 0x8010  /**< Signed 16-bit samples */;
-enum AUDIO_U16MSB = 0x1010  /**< As above, but big-endian byte order */;
-enum AUDIO_S16MSB = 0x9010  /**< As above, but big-endian byte order */;
+enum AUDIO_U8 = 0x0008  /*< Unsigned 8-bit samples */;
+enum AUDIO_S8 = 0x8008  /*< Signed 8-bit samples */;
+enum AUDIO_U16LSB = 0x0010  /*< Unsigned 16-bit samples */;
+enum AUDIO_S16LSB = 0x8010  /*< Signed 16-bit samples */;
+enum AUDIO_U16MSB = 0x1010  /*< As above, but big-endian byte order */;
+enum AUDIO_S16MSB = 0x9010  /*< As above, but big-endian byte order */;
 enum AUDIO_U16 = AUDIO_U16LSB;
 enum AUDIO_S16 = AUDIO_S16LSB;
 /*@}*/
@@ -93,8 +93,8 @@ enum AUDIO_S16 = AUDIO_S16LSB;
  *  \name int32 support
  */
 /*@{*/
-enum AUDIO_S32LSB = 0x8020  /**< 32-bit integer samples */;
-enum AUDIO_S32MSB = 0x9020  /**< As above, but big-endian byte order */;
+enum AUDIO_S32LSB = 0x8020  /*< 32-bit integer samples */;
+enum AUDIO_S32MSB = 0x9020  /*< As above, but big-endian byte order */;
 enum AUDIO_S32 = AUDIO_S32LSB;
 /*@}*/
 
@@ -102,8 +102,8 @@ enum AUDIO_S32 = AUDIO_S32LSB;
  *  \name float32 support
  */
 /*@{*/
-enum AUDIO_F32LSB = 0x8120  /**< 32-bit floating point samples */;
-enum AUDIO_F32MSB = 0x9120  /**< As above, but big-endian byte order */;
+enum AUDIO_F32LSB = 0x8120  /*< 32-bit floating point samples */;
+enum AUDIO_F32MSB = 0x9120  /*< As above, but big-endian byte order */;
 enum AUDIO_F32 = AUDIO_F32LSB;
 /*@}*/
 
@@ -177,17 +177,17 @@ alias SDL_AudioFilter = void function(SDL_AudioCVT * cvt,
  */
 struct SDL_AudioCVT
 {
-    int needed;                 /**< Set to 1 if conversion possible */
-    SDL_AudioFormat src_format; /**< Source audio format */
-    SDL_AudioFormat dst_format; /**< Target audio format */
-    double rate_incr;           /**< Rate conversion increment */
-    Uint8 *buf;                 /**< Buffer to hold entire audio data */
-    int len;                    /**< Length of original audio buffer */
-    int len_cvt;                /**< Length of converted audio buffer */
-    int len_mult;               /**< buffer must be len*len_mult big */
-    double len_ratio;           /**< Given len, final size is len*len_ratio */
-    SDL_AudioFilter[10] filters;        /**< Filter list */
-    int filter_index;           /**< Current audio conversion function */
+    int needed;                 //< Set to 1 if conversion possible */
+    SDL_AudioFormat src_format; //< Source audio format */
+    SDL_AudioFormat dst_format; //< Target audio format */
+    double rate_incr;           //< Rate conversion increment */
+    Uint8 *buf;                 //< Buffer to hold entire audio data */
+    int len;                    //< Length of original audio buffer */
+    int len_cvt;                //< Length of converted audio buffer */
+    int len_mult;               //< buffer must be len*len_mult big */
+    double len_ratio;           //< Given len, final size is len*len_ratio */
+    SDL_AudioFilter[10] filters;       //< Filter list */
+    int filter_index;           //< Current audio conversion function */
 }
 
 

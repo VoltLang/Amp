@@ -21,7 +21,7 @@
 module amp.sdl2.keycode;
 extern (C):
 
-/**
+/*
  *  \file SDL_keycode.h
  *
  *  Defines constants which identify keyboard keys and modifiers.

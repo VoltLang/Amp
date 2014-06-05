@@ -21,7 +21,7 @@
 module amp.sdl2.timer;
 extern (C):
 
-/**
+/*
  *  \file SDL_timer.h
  *
  *  Header for the SDL time management routines.

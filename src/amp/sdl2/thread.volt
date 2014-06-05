@@ -21,7 +21,7 @@
 module amp.sdl2.thread;
 extern (C):
 
-/**
+/*
  *  \file SDL_thread.h
  *
  *  Header for the SDL thread management routines.

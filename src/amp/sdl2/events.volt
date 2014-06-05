@@ -21,7 +21,7 @@
 module amp.sdl2.events;
 extern (C):
 
-/**
+/*
  *  \file SDL_events.h
  *
  *  Include file for SDL event handling.
@@ -48,69 +48,69 @@ enum SDL_PRESSED = 1;
 alias SDL_EventType = uint;
 enum : SDL_EventType
 {
-    SDL_FIRSTEVENT     = 0,     /**< Unused (do not remove) */
+    SDL_FIRSTEVENT     = 0,     /*< Unused (do not remove) */
 
     /* Application events */
-    SDL_QUIT           = 0x100U, /**< User-requested quit */
+    SDL_QUIT           = 0x100U, /*< User-requested quit */
 
     /* These application events have special meaning on iOS, see README-ios.txt for details */
-    SDL_APP_TERMINATING = 0x101U,        /**< The application is being terminated by the OS
+    SDL_APP_TERMINATING = 0x101U,        /*< The application is being terminated by the OS
                                      Called on iOS in applicationWillTerminate()
                                      Called on Android in onDestroy()
                                 */
-    SDL_APP_LOWMEMORY = 0x102U,          /**< The application is low on memory, free memory if possible.
+    SDL_APP_LOWMEMORY = 0x102U,          /*< The application is low on memory, free memory if possible.
                                      Called on iOS in applicationDidReceiveMemoryWarning()
                                      Called on Android in onLowMemory()
                                 */
-    SDL_APP_WILLENTERBACKGROUND = 0x103U, /**< The application is about to enter the background
+    SDL_APP_WILLENTERBACKGROUND = 0x103U, /*< The application is about to enter the background
                                      Called on iOS in applicationWillResignActive()
                                      Called on Android in onPause()
                                 */
-    SDL_APP_DIDENTERBACKGROUND = 0x104U, /**< The application did enter the background and may not get CPU for some time
+    SDL_APP_DIDENTERBACKGROUND = 0x104U, /*< The application did enter the background and may not get CPU for some time
                                      Called on iOS in applicationDidEnterBackground()
                                      Called on Android in onPause()
                                 */
-    SDL_APP_WILLENTERFOREGROUND = 0x105U, /**< The application is about to enter the foreground
+    SDL_APP_WILLENTERFOREGROUND = 0x105U, /*< The application is about to enter the foreground
                                      Called on iOS in applicationWillEnterForeground()
                                      Called on Android in onResume()
                                 */
-    SDL_APP_DIDENTERFOREGROUND = 0x106U, /**< The application is now interactive
+    SDL_APP_DIDENTERFOREGROUND = 0x106U, /*< The application is now interactive
                                      Called on iOS in applicationDidBecomeActive()
                                      Called on Android in onResume()
                                 */
 
     /* Window events */
-    SDL_WINDOWEVENT    = 0x200U, /**< Window state change */
-    SDL_SYSWMEVENT = 0x201U,             /**< System specific event */
+    SDL_WINDOWEVENT    = 0x200U, /*< Window state change */
+    SDL_SYSWMEVENT = 0x201U,             /*< System specific event */
 
     /* Keyboard events */
-    SDL_KEYDOWN       = 0x300U, /**< Key pressed */
-    SDL_KEYUP         = 0x301U, /**< Key released */
-    SDL_TEXTEDITING   = 0x302U, /**< Keyboard text editing (composition) */
-    SDL_TEXTINPUT     = 0x303U, /**< Keyboard text input */
+    SDL_KEYDOWN       = 0x300U, /*< Key pressed */
+    SDL_KEYUP         = 0x301U, /*< Key released */
+    SDL_TEXTEDITING   = 0x302U, /*< Keyboard text editing (composition) */
+    SDL_TEXTINPUT     = 0x303U, /*< Keyboard text input */
 
     /* Mouse events */
-    SDL_MOUSEMOTION    = 0x400U, /**< Mouse moved */
-    SDL_MOUSEBUTTONDOWN = 0x401U,/**< Mouse button pressed */
-    SDL_MOUSEBUTTONUP = 0x402U,  /**< Mouse button released */
-    SDL_MOUSEWHEEL = 0x403U,     /**< Mouse wheel motion */
+    SDL_MOUSEMOTION    = 0x400U, /*< Mouse moved */
+    SDL_MOUSEBUTTONDOWN = 0x401U,/*< Mouse button pressed */
+    SDL_MOUSEBUTTONUP = 0x402U,  /*< Mouse button released */
+    SDL_MOUSEWHEEL = 0x403U,     /*< Mouse wheel motion */
 
     /* Joystick events */
-    SDL_JOYAXISMOTION  = 0x600U, /**< Joystick axis motion */
-    SDL_JOYBALLMOTION = 0x601U, /**< Joystick trackball motion */
-    SDL_JOYHATMOTION = 0x602U,  /**< Joystick hat position change */
-    SDL_JOYBUTTONDOWN = 0x603U, /**< Joystick button pressed */
-    SDL_JOYBUTTONUP = 0x604U,   /**< Joystick button released */
-    SDL_JOYDEVICEADDED = 0x605U,/**< A new joystick has been inserted into the system */
-    SDL_JOYDEVICEREMOVED = 0x606U,/**< An opened joystick has been removed */
+    SDL_JOYAXISMOTION  = 0x600U, /*< Joystick axis motion */
+    SDL_JOYBALLMOTION = 0x601U, /*< Joystick trackball motion */
+    SDL_JOYHATMOTION = 0x602U,  /*< Joystick hat position change */
+    SDL_JOYBUTTONDOWN = 0x603U, /*< Joystick button pressed */
+    SDL_JOYBUTTONUP = 0x604U,   /*< Joystick button released */
+    SDL_JOYDEVICEADDED = 0x605U,/*< A new joystick has been inserted into the system */
+    SDL_JOYDEVICEREMOVED = 0x606U,/*< An opened joystick has been removed */
 
     /* Game controller events */
-    SDL_CONTROLLERAXISMOTION  = 0x650U, /**< Game controller axis motion */
-    SDL_CONTROLLERBUTTONDOWN = 0x651U,          /**< Game controller button pressed */
-    SDL_CONTROLLERBUTTONUP = 0x652U,            /**< Game controller button released */
-    SDL_CONTROLLERDEVICEADDED = 0x653U,         /**< A new Game controller has been inserted into the system */
-    SDL_CONTROLLERDEVICEREMOVED = 0x654U,       /**< An opened Game controller has been removed */
-    SDL_CONTROLLERDEVICEREMAPPED = 0x655U,      /**< The controller mapping was updated */
+    SDL_CONTROLLERAXISMOTION  = 0x650U, /*< Game controller axis motion */
+    SDL_CONTROLLERBUTTONDOWN = 0x651U,          /*< Game controller button pressed */
+    SDL_CONTROLLERBUTTONUP = 0x652U,            /*< Game controller button released */
+    SDL_CONTROLLERDEVICEADDED = 0x653U,         /*< A new Game controller has been inserted into the system */
+    SDL_CONTROLLERDEVICEREMOVED = 0x654U,       /*< An opened Game controller has been removed */
+    SDL_CONTROLLERDEVICEREMAPPED = 0x655U,      /*< The controller mapping was updated */
 
     /* Touch events */
     SDL_FINGERDOWN      = 0x700U,
@@ -123,17 +123,17 @@ enum : SDL_EventType
     SDL_MULTIGESTURE = 0x802U,
 
     /* Clipboard events */
-    SDL_CLIPBOARDUPDATE = 0x900U, /**< The clipboard changed */
+    SDL_CLIPBOARDUPDATE = 0x900U, /*< The clipboard changed */
 
     /* Drag and drop events */
-    SDL_DROPFILE        = 0x1000U, /**< The system requests a file open */
+    SDL_DROPFILE        = 0x1000U, /*< The system requests a file open */
 
-    /** Events ::SDL_USEREVENT through ::SDL_LASTEVENT are for your use,
+    /* Events ::SDL_USEREVENT through ::SDL_LASTEVENT are for your use,
      *  and should be allocated with SDL_RegisterEvents()
      */
     SDL_USEREVENT    = 0x8000U,
 
-    /**
+    /*
      *  This last event is only for bounding internal arrays
      */
     SDL_LASTEVENT    = 0xFFFFU
@@ -153,15 +153,15 @@ struct SDL_CommonEvent
  */
 struct SDL_WindowEvent
 {
-    Uint32 type;        /**< ::SDL_WINDOWEVENT */
+    Uint32 type;        /*< ::SDL_WINDOWEVENT */
     Uint32 timestamp;
-    Uint32 windowID;    /**< The associated window */
-    Uint8 event;        /**< ::SDL_WindowEventID */
+    Uint32 windowID;    /*< The associated window */
+    Uint8 event;        /*< ::SDL_WindowEventID */
     Uint8 padding1;
     Uint8 padding2;
     Uint8 padding3;
-    Sint32 data1;       /**< event dependent data */
-    Sint32 data2;       /**< event dependent data */
+    Sint32 data1;       /*< event dependent data */
+    Sint32 data2;       /*< event dependent data */
 }
 
 /**
@@ -169,14 +169,14 @@ struct SDL_WindowEvent
  */
 struct SDL_KeyboardEvent
 {
-    Uint32 type;        /**< ::SDL_KEYDOWN or ::SDL_KEYUP */
+    Uint32 type;        /*< ::SDL_KEYDOWN or ::SDL_KEYUP */
     Uint32 timestamp;
-    Uint32 windowID;    /**< The window with keyboard focus, if any */
-    Uint8 state;        /**< ::SDL_PRESSED or ::SDL_RELEASED */
-    Uint8 repeat;       /**< Non-zero if this is a key repeat */
+    Uint32 windowID;    /*< The window with keyboard focus, if any */
+    Uint8 state;        /*< ::SDL_PRESSED or ::SDL_RELEASED */
+    Uint8 repeat;       /*< Non-zero if this is a key repeat */
     Uint8 padding2;
     Uint8 padding3;
-    SDL_Keysym keysym;  /**< The key that was pressed or released */
+    SDL_Keysym keysym;  /*< The key that was pressed or released */
 }
 
 enum SDL_TEXTEDITINGEVENT_TEXT_SIZE = (32);
@@ -185,12 +185,12 @@ enum SDL_TEXTEDITINGEVENT_TEXT_SIZE = (32);
  */
 struct SDL_TextEditingEvent
 {
-    Uint32 type;                                /**< ::SDL_TEXTEDITING */
+    Uint32 type;                                /*< ::SDL_TEXTEDITING */
     Uint32 timestamp;
-    Uint32 windowID;                            /**< The window with keyboard focus, if any */
-    char[32] text;  /**< The editing text */
-    Sint32 start;                               /**< The start cursor of selected editing text */
-    Sint32 length;                              /**< The length of selected editing text */
+    Uint32 windowID;                            /*< The window with keyboard focus, if any */
+    char[32] text;  /*< The editing text */
+    Sint32 start;                               /*< The start cursor of selected editing text */
+    Sint32 length;                              /*< The length of selected editing text */
 }
 
 
@@ -200,10 +200,10 @@ enum SDL_TEXTINPUTEVENT_TEXT_SIZE = (32);
  */
 struct SDL_TextInputEvent
 {
-    Uint32 type;                              /**< ::SDL_TEXTINPUT */
+    Uint32 type;                              /*< ::SDL_TEXTINPUT */
     Uint32 timestamp;
-    Uint32 windowID;                          /**< The window with keyboard focus, if any */
-    char[32] text;  /**< The input text */
+    Uint32 windowID;                          /*< The window with keyboard focus, if any */
+    char[32] text;  /*< The input text */
 }
 
 /**
@@ -211,15 +211,15 @@ struct SDL_TextInputEvent
  */
 struct SDL_MouseMotionEvent
 {
-    Uint32 type;        /**< ::SDL_MOUSEMOTION */
+    Uint32 type;        /*< ::SDL_MOUSEMOTION */
     Uint32 timestamp;
-    Uint32 windowID;    /**< The window with mouse focus, if any */
-    Uint32 which;       /**< The mouse instance id, or SDL_TOUCH_MOUSEID */
-    Uint32 state;       /**< The current button state */
-    Sint32 x;           /**< X coordinate, relative to window */
-    Sint32 y;           /**< Y coordinate, relative to window */
-    Sint32 xrel;        /**< The relative motion in the X direction */
-    Sint32 yrel;        /**< The relative motion in the Y direction */
+    Uint32 windowID;    /*< The window with mouse focus, if any */
+    Uint32 which;       /*< The mouse instance id, or SDL_TOUCH_MOUSEID */
+    Uint32 state;       /*< The current button state */
+    Sint32 x;           /*< X coordinate, relative to window */
+    Sint32 y;           /*< Y coordinate, relative to window */
+    Sint32 xrel;        /*< The relative motion in the X direction */
+    Sint32 yrel;        /*< The relative motion in the Y direction */
 }
 
 /**
@@ -227,16 +227,16 @@ struct SDL_MouseMotionEvent
  */
 struct SDL_MouseButtonEvent
 {
-    Uint32 type;        /**< ::SDL_MOUSEBUTTONDOWN or ::SDL_MOUSEBUTTONUP */
+    Uint32 type;        /*< ::SDL_MOUSEBUTTONDOWN or ::SDL_MOUSEBUTTONUP */
     Uint32 timestamp;
-    Uint32 windowID;    /**< The window with mouse focus, if any */
-    Uint32 which;       /**< The mouse instance id, or SDL_TOUCH_MOUSEID */
-    Uint8 button;       /**< The mouse button index */
-    Uint8 state;        /**< ::SDL_PRESSED or ::SDL_RELEASED */
+    Uint32 windowID;    /*< The window with mouse focus, if any */
+    Uint32 which;       /*< The mouse instance id, or SDL_TOUCH_MOUSEID */
+    Uint8 button;       /*< The mouse button index */
+    Uint8 state;        /*< ::SDL_PRESSED or ::SDL_RELEASED */
     Uint8 padding1;
     Uint8 padding2;
-    Sint32 x;           /**< X coordinate, relative to window */
-    Sint32 y;           /**< Y coordinate, relative to window */
+    Sint32 x;           /*< X coordinate, relative to window */
+    Sint32 y;           /*< Y coordinate, relative to window */
 }
 
 /**
@@ -244,12 +244,12 @@ struct SDL_MouseButtonEvent
  */
 struct SDL_MouseWheelEvent
 {
-    Uint32 type;        /**< ::SDL_MOUSEWHEEL */
+    Uint32 type;        /*< ::SDL_MOUSEWHEEL */
     Uint32 timestamp;
-    Uint32 windowID;    /**< The window with mouse focus, if any */
-    Uint32 which;       /**< The mouse instance id, or SDL_TOUCH_MOUSEID */
-    Sint32 x;           /**< The amount scrolled horizontally */
-    Sint32 y;           /**< The amount scrolled vertically */
+    Uint32 windowID;    /*< The window with mouse focus, if any */
+    Uint32 which;       /*< The mouse instance id, or SDL_TOUCH_MOUSEID */
+    Sint32 x;           /*< The amount scrolled horizontally */
+    Sint32 y;           /*< The amount scrolled vertically */
 }
 
 /**
@@ -257,14 +257,14 @@ struct SDL_MouseWheelEvent
  */
 struct SDL_JoyAxisEvent
 {
-    Uint32 type;        /**< ::SDL_JOYAXISMOTION */
+    Uint32 type;        /*< ::SDL_JOYAXISMOTION */
     Uint32 timestamp;
-    SDL_JoystickID which; /**< The joystick instance id */
-    Uint8 axis;         /**< The joystick axis index */
+    SDL_JoystickID which; /*< The joystick instance id */
+    Uint8 axis;         /*< The joystick axis index */
     Uint8 padding1;
     Uint8 padding2;
     Uint8 padding3;
-    Sint16 value;       /**< The axis value (range: -32768 to 32767) */
+    Sint16 value;       /*< The axis value (range: -32768 to 32767) */
     Uint16 padding4;
 }
 
@@ -273,15 +273,15 @@ struct SDL_JoyAxisEvent
  */
 struct SDL_JoyBallEvent
 {
-    Uint32 type;        /**< ::SDL_JOYBALLMOTION */
+    Uint32 type;        /*< ::SDL_JOYBALLMOTION */
     Uint32 timestamp;
-    SDL_JoystickID which; /**< The joystick instance id */
-    Uint8 ball;         /**< The joystick trackball index */
+    SDL_JoystickID which; /*< The joystick instance id */
+    Uint8 ball;         /*< The joystick trackball index */
     Uint8 padding1;
     Uint8 padding2;
     Uint8 padding3;
-    Sint16 xrel;        /**< The relative motion in the X direction */
-    Sint16 yrel;        /**< The relative motion in the Y direction */
+    Sint16 xrel;        /*< The relative motion in the X direction */
+    Sint16 yrel;        /*< The relative motion in the Y direction */
 }
 
 /**
@@ -289,11 +289,11 @@ struct SDL_JoyBallEvent
  */
 struct SDL_JoyHatEvent
 {
-    Uint32 type;        /**< ::SDL_JOYHATMOTION */
+    Uint32 type;        /*< ::SDL_JOYHATMOTION */
     Uint32 timestamp;
-    SDL_JoystickID which; /**< The joystick instance id */
-    Uint8 hat;          /**< The joystick hat index */
-    Uint8 value;        /**< The hat position value.
+    SDL_JoystickID which; /*< The joystick instance id */
+    Uint8 hat;          /*< The joystick hat index */
+    Uint8 value;        /*< The hat position value.
                          *   \sa ::SDL_HAT_LEFTUP ::SDL_HAT_UP ::SDL_HAT_RIGHTUP
                          *   \sa ::SDL_HAT_LEFT ::SDL_HAT_CENTERED ::SDL_HAT_RIGHT
                          *   \sa ::SDL_HAT_LEFTDOWN ::SDL_HAT_DOWN ::SDL_HAT_RIGHTDOWN
@@ -309,11 +309,11 @@ struct SDL_JoyHatEvent
  */
 struct SDL_JoyButtonEvent
 {
-    Uint32 type;        /**< ::SDL_JOYBUTTONDOWN or ::SDL_JOYBUTTONUP */
+    Uint32 type;        /*< ::SDL_JOYBUTTONDOWN or ::SDL_JOYBUTTONUP */
     Uint32 timestamp;
-    SDL_JoystickID which; /**< The joystick instance id */
-    Uint8 button;       /**< The joystick button index */
-    Uint8 state;        /**< ::SDL_PRESSED or ::SDL_RELEASED */
+    SDL_JoystickID which; /*< The joystick instance id */
+    Uint8 button;       /*< The joystick button index */
+    Uint8 state;        /*< ::SDL_PRESSED or ::SDL_RELEASED */
     Uint8 padding1;
     Uint8 padding2;
 }
@@ -323,9 +323,9 @@ struct SDL_JoyButtonEvent
  */
 struct SDL_JoyDeviceEvent
 {
-    Uint32 type;        /**< ::SDL_JOYDEVICEADDED or ::SDL_JOYDEVICEREMOVED */
+    Uint32 type;        /*< ::SDL_JOYDEVICEADDED or ::SDL_JOYDEVICEREMOVED */
     Uint32 timestamp;
-    Sint32 which;       /**< The joystick device index for the ADDED event, instance id for the REMOVED event */
+    Sint32 which;       /*< The joystick device index for the ADDED event, instance id for the REMOVED event */
 }
 
 
@@ -334,14 +334,14 @@ struct SDL_JoyDeviceEvent
  */
 struct SDL_ControllerAxisEvent
 {
-    Uint32 type;        /**< ::SDL_CONTROLLERAXISMOTION */
+    Uint32 type;        /*< ::SDL_CONTROLLERAXISMOTION */
     Uint32 timestamp;
-    SDL_JoystickID which; /**< The joystick instance id */
-    Uint8 axis;         /**< The controller axis (SDL_GameControllerAxis) */
+    SDL_JoystickID which; /*< The joystick instance id */
+    Uint8 axis;         /*< The controller axis (SDL_GameControllerAxis) */
     Uint8 padding1;
     Uint8 padding2;
     Uint8 padding3;
-    Sint16 value;       /**< The axis value (range: -32768 to 32767) */
+    Sint16 value;       /*< The axis value (range: -32768 to 32767) */
     Uint16 padding4;
 }
 
@@ -351,11 +351,11 @@ struct SDL_ControllerAxisEvent
  */
 struct SDL_ControllerButtonEvent
 {
-    Uint32 type;        /**< ::SDL_CONTROLLERBUTTONDOWN or ::SDL_CONTROLLERBUTTONUP */
+    Uint32 type;        /*< ::SDL_CONTROLLERBUTTONDOWN or ::SDL_CONTROLLERBUTTONUP */
     Uint32 timestamp;
-    SDL_JoystickID which; /**< The joystick instance id */
-    Uint8 button;       /**< The controller button (SDL_GameControllerButton) */
-    Uint8 state;        /**< ::SDL_PRESSED or ::SDL_RELEASED */
+    SDL_JoystickID which; /*< The joystick instance id */
+    Uint8 button;       /*< The controller button (SDL_GameControllerButton) */
+    Uint8 state;        /*< ::SDL_PRESSED or ::SDL_RELEASED */
     Uint8 padding1;
     Uint8 padding2;
 }
@@ -366,9 +366,9 @@ struct SDL_ControllerButtonEvent
  */
 struct SDL_ControllerDeviceEvent
 {
-    Uint32 type;        /**< ::SDL_CONTROLLERDEVICEADDED, ::SDL_CONTROLLERDEVICEREMOVED, or ::SDL_CONTROLLERDEVICEREMAPPED */
+    Uint32 type;        /*< ::SDL_CONTROLLERDEVICEADDED, ::SDL_CONTROLLERDEVICEREMOVED, or ::SDL_CONTROLLERDEVICEREMAPPED */
     Uint32 timestamp;
-    Sint32 which;       /**< The joystick device index for the ADDED event, instance id for the REMOVED or REMAPPED event */
+    Sint32 which;       /*< The joystick device index for the ADDED event, instance id for the REMOVED or REMAPPED event */
 }
 
 
@@ -377,15 +377,15 @@ struct SDL_ControllerDeviceEvent
  */
 struct SDL_TouchFingerEvent
 {
-    Uint32 type;        /**< ::SDL_FINGERMOTION or ::SDL_FINGERDOWN or ::SDL_FINGERUP */
+    Uint32 type;        /*< ::SDL_FINGERMOTION or ::SDL_FINGERDOWN or ::SDL_FINGERUP */
     Uint32 timestamp;
-    SDL_TouchID touchId; /**< The touch device id */
+    SDL_TouchID touchId; /*< The touch device id */
     SDL_FingerID fingerId;
-    float x;            /**< Normalized in the range 0...1 */
-    float y;            /**< Normalized in the range 0...1 */
-    float dx;           /**< Normalized in the range 0...1 */
-    float dy;           /**< Normalized in the range 0...1 */
-    float pressure;     /**< Normalized in the range 0...1 */
+    float x;            /*< Normalized in the range 0...1 */
+    float y;            /*< Normalized in the range 0...1 */
+    float dx;           /*< Normalized in the range 0...1 */
+    float dy;           /*< Normalized in the range 0...1 */
+    float pressure;     /*< Normalized in the range 0...1 */
 }
 
 
@@ -394,9 +394,9 @@ struct SDL_TouchFingerEvent
  */
 struct SDL_MultiGestureEvent
 {
-    Uint32 type;        /**< ::SDL_MULTIGESTURE */
+    Uint32 type;        /*< ::SDL_MULTIGESTURE */
     Uint32 timestamp;
-    SDL_TouchID touchId; /**< The touch device index */
+    SDL_TouchID touchId; /*< The touch device index */
     float dTheta;
     float dDist;
     float x;
@@ -411,14 +411,14 @@ struct SDL_MultiGestureEvent
  */
 struct SDL_DollarGestureEvent
 {
-    Uint32 type;        /**< ::SDL_DOLLARGESTURE */
+    Uint32 type;        /*< ::SDL_DOLLARGESTURE */
     Uint32 timestamp;
-    SDL_TouchID touchId; /**< The touch device id */
+    SDL_TouchID touchId; /*< The touch device id */
     SDL_GestureID gestureId;
     Uint32 numFingers;
     float error;
-    float x;            /**< Normalized center of gesture */
-    float y;            /**< Normalized center of gesture */
+    float x;            /*< Normalized center of gesture */
+    float y;            /*< Normalized center of gesture */
 }
 
 
@@ -429,9 +429,9 @@ struct SDL_DollarGestureEvent
  */
 struct SDL_DropEvent
 {
-    Uint32 type;        /**< ::SDL_DROPFILE */
+    Uint32 type;        /*< ::SDL_DROPFILE */
     Uint32 timestamp;
-    char *file;         /**< The file name, which should be freed with SDL_free() */
+    char *file;         /*< The file name, which should be freed with SDL_free() */
 }
 
 
@@ -440,7 +440,7 @@ struct SDL_DropEvent
  */
 struct SDL_QuitEvent
 {
-    Uint32 type;        /**< ::SDL_QUIT */
+    Uint32 type;        /*< ::SDL_QUIT */
     Uint32 timestamp;
 }
 
@@ -449,7 +449,7 @@ struct SDL_QuitEvent
  */
 struct SDL_OSEvent
 {
-    Uint32 type;        /**< ::SDL_QUIT */
+    Uint32 type;        /*< ::SDL_QUIT */
     Uint32 timestamp;
 }
 
@@ -458,12 +458,12 @@ struct SDL_OSEvent
  */
 struct SDL_UserEvent
 {
-    Uint32 type;        /**< ::SDL_USEREVENT through ::SDL_LASTEVENT-1 */
+    Uint32 type;        /*< ::SDL_USEREVENT through ::SDL_LASTEVENT-1 */
     Uint32 timestamp;
-    Uint32 windowID;    /**< The associated window if any */
-    Sint32 code;        /**< User defined event code */
-    void *data1;        /**< User defined data pointer */
-    void *data2;        /**< User defined data pointer */
+    Uint32 windowID;    /*< The associated window if any */
+    Sint32 code;        /*< User defined event code */
+    void *data1;        /*< User defined data pointer */
+    void *data2;        /*< User defined data pointer */
 }
 
 
@@ -477,9 +477,9 @@ struct SDL_SysWMmsg {}
  */
 struct SDL_SysWMEvent
 {
-    Uint32 type;        /**< ::SDL_SYSWMEVENT */
+    Uint32 type;        /*< ::SDL_SYSWMEVENT */
     Uint32 timestamp;
-    SDL_SysWMmsg *msg;  /**< driver dependent data, defined in SDL_syswm.h */
+    SDL_SysWMmsg *msg;  /*< driver dependent data, defined in SDL_syswm.h */
 }
 
 /**
@@ -487,30 +487,30 @@ struct SDL_SysWMEvent
  */
 union SDL_Event
 {
-    Uint32 type;                    /**< Event type, shared with all events */
-    SDL_CommonEvent common;         /**< Common event data */
-    SDL_WindowEvent window;         /**< Window event data */
-    SDL_KeyboardEvent key;          /**< Keyboard event data */
-    SDL_TextEditingEvent edit;      /**< Text editing event data */
-    SDL_TextInputEvent text;        /**< Text input event data */
-    SDL_MouseMotionEvent motion;    /**< Mouse motion event data */
-    SDL_MouseButtonEvent button;    /**< Mouse button event data */
-    SDL_MouseWheelEvent wheel;      /**< Mouse wheel event data */
-    SDL_JoyAxisEvent jaxis;         /**< Joystick axis event data */
-    SDL_JoyBallEvent jball;         /**< Joystick ball event data */
-    SDL_JoyHatEvent jhat;           /**< Joystick hat event data */
-    SDL_JoyButtonEvent jbutton;     /**< Joystick button event data */
-    SDL_JoyDeviceEvent jdevice;     /**< Joystick device change event data */
-    SDL_ControllerAxisEvent caxis;      /**< Game Controller axis event data */
-    SDL_ControllerButtonEvent cbutton;  /**< Game Controller button event data */
-    SDL_ControllerDeviceEvent cdevice;  /**< Game Controller device event data */
-    SDL_QuitEvent quit;             /**< Quit request event data */
-    SDL_UserEvent user;             /**< Custom event data */
-    SDL_SysWMEvent syswm;           /**< System dependent window event data */
-    SDL_TouchFingerEvent tfinger;   /**< Touch finger event data */
-    SDL_MultiGestureEvent mgesture; /**< Gesture event data */
-    SDL_DollarGestureEvent dgesture; /**< Gesture event data */
-    SDL_DropEvent drop;             /**< Drag and drop event data */
+    Uint32 type;                    /*< Event type, shared with all events */
+    SDL_CommonEvent common;         /*< Common event data */
+    SDL_WindowEvent window;         /*< Window event data */
+    SDL_KeyboardEvent key;          /*< Keyboard event data */
+    SDL_TextEditingEvent edit;      /*< Text editing event data */
+    SDL_TextInputEvent text;        /*< Text input event data */
+    SDL_MouseMotionEvent motion;    /*< Mouse motion event data */
+    SDL_MouseButtonEvent button;    /*< Mouse button event data */
+    SDL_MouseWheelEvent wheel;      /*< Mouse wheel event data */
+    SDL_JoyAxisEvent jaxis;         /*< Joystick axis event data */
+    SDL_JoyBallEvent jball;         /*< Joystick ball event data */
+    SDL_JoyHatEvent jhat;           /*< Joystick hat event data */
+    SDL_JoyButtonEvent jbutton;     /*< Joystick button event data */
+    SDL_JoyDeviceEvent jdevice;     /*< Joystick device change event data */
+    SDL_ControllerAxisEvent caxis;      /*< Game Controller axis event data */
+    SDL_ControllerButtonEvent cbutton;  /*< Game Controller button event data */
+    SDL_ControllerDeviceEvent cdevice;  /*< Game Controller device event data */
+    SDL_QuitEvent quit;             /*< Quit request event data */
+    SDL_UserEvent user;             /*< Custom event data */
+    SDL_SysWMEvent syswm;           /*< System dependent window event data */
+    SDL_TouchFingerEvent tfinger;   /*< Touch finger event data */
+    SDL_MultiGestureEvent mgesture; /*< Gesture event data */
+    SDL_DollarGestureEvent dgesture; /*< Gesture event data */
+    SDL_DropEvent drop;             /*< Drag and drop event data */
 
     /* This is necessary for ABI compatibility between Visual C++ and GCC
        Visual C++ will respect the push pack pragma and use 52 bytes for

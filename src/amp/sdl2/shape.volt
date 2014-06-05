@@ -27,7 +27,7 @@ import amp.sdl2.rect;
 import amp.sdl2.surface;
 import amp.sdl2.video;
 
-/** \file SDL_shape.h
+/* \file SDL_shape.h
  *
  * Header file for the shaped window API.
  */
@@ -71,13 +71,13 @@ enum SDL_WINDOW_LACKS_SHAPE = -3;
 /** \brief An enum denoting the specific type of contents present in an SDL_WindowShapeParams union. */
 alias WindowShapeMode = int;
 enum : WindowShapeMode {
-    /** \brief The default mode, a binarized alpha cutoff of 1. */
+    /* \brief The default mode, a binarized alpha cutoff of 1. */
     ShapeModeDefault,
-    /** \brief A binarized alpha cutoff with a given integer value. */
+    /* \brief A binarized alpha cutoff with a given integer value. */
     ShapeModeBinarizeAlpha,
-    /** \brief A binarized alpha cutoff with a given integer value, but with the opposite comparison. */
+    /* \brief A binarized alpha cutoff with a given integer value, but with the opposite comparison. */
     ShapeModeReverseBinarizeAlpha,
-    /** \brief A color key is applied. */
+    /* \brief A color key is applied. */
     ShapeModeColorKey
 }
 

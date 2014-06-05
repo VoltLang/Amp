@@ -21,7 +21,7 @@
 module amp.sdl2.clipboard;
 extern (C):
 
-/**
+/*
  * \file SDL_clipboard.h
  *
  * Include file for SDL clipboard handling

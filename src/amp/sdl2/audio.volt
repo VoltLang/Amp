@@ -168,8 +168,7 @@ struct SDL_AudioSpec
     void *userdata;
 }
 
-
-alias SDL_AudioFilter = void function(SDL_AudioCVT * cvt,
+alias SDL_AudioFilter = void function(void * cvt,
                                           SDL_AudioFormat format);
 
 /**

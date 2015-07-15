@@ -47,7 +47,7 @@ enum SDL_MUTEX_TIMEDOUT = 1;
 /**
  *  \name Mutex functions
  */
-/*@{*/
+/* */
 
 /* The SDL mutex structure, defined in SDL_mutex.c */
 struct SDL_mutex {}
@@ -86,13 +86,13 @@ int  SDL_UnlockMutex(SDL_mutex * mutex);
  */
 void  SDL_DestroyMutex(SDL_mutex * mutex);
 
-/*@}*//*Mutex functions*/
+/* *//*Mutex functions*/
 
 
 /**
  *  \name Semaphore functions
  */
-/*@{*/
+/* */
 
 /* The SDL semaphore structure, defined in SDL_sem.c */
 struct SDL_semaphore {}
@@ -145,13 +145,13 @@ int  SDL_SemPost(SDL_semaphore* sem);
  */
 Uint32  SDL_SemValue(SDL_semaphore* sem);
 
-/*@}*//*Semaphore functions*/
+/* *//*Semaphore functions*/
 
 
 /**
  *  \name Condition variable functions
  */
-/*@{*/
+/* */
 
 /* The SDL condition variable structure, defined in SDL_cond.c */
 struct SDL_cond {}
@@ -227,7 +227,7 @@ int  SDL_CondWait(SDL_cond * cond, SDL_mutex * mutex);
 int  SDL_CondWaitTimeout(SDL_cond * cond,
                                                 SDL_mutex * mutex, Uint32 ms);
 
-/*@}*//*Condition variable functions*/
+/* *//*Condition variable functions*/
 
 
 /* Ends C function definitions when using C++ */

@@ -180,7 +180,7 @@ Sint16  SDL_JoystickGetAxis(SDL_Joystick * joystick,
 /**
  *  \name Hat positions
  */
-/*@{*/
+/* */
 enum SDL_HAT_CENTERED = 0x00;
 enum SDL_HAT_UP = 0x01;
 enum SDL_HAT_RIGHT = 0x02;
@@ -190,7 +190,7 @@ enum SDL_HAT_RIGHTUP = (SDL_HAT_RIGHT|SDL_HAT_UP);
 enum SDL_HAT_RIGHTDOWN = (SDL_HAT_RIGHT|SDL_HAT_DOWN);
 enum SDL_HAT_LEFTUP = (SDL_HAT_LEFT|SDL_HAT_UP);
 enum SDL_HAT_LEFTDOWN = (SDL_HAT_LEFT|SDL_HAT_DOWN);
-/*@}*/
+/* */
 
 /**
  *  Get the current state of a POV hat on a joystick.

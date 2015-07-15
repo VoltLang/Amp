@@ -59,7 +59,7 @@ alias SDL_AudioFormat = Uint16;
 /**
  *  \name Audio flags
  */
-/*@{*/
+/* */
 
 enum SDL_AUDIO_MASK_BITSIZE = (0xFF);
 enum SDL_AUDIO_MASK_DATATYPE = (1<<8);
@@ -78,7 +78,7 @@ bool SDL_AUDIO_ISUNSIGNED(int x) { return !SDL_AUDIO_ISSIGNED(x); }
  *
  *  Defaults to LSB byte order.
  */
-/*@{*/
+/* */
 enum AUDIO_U8 = 0x0008  /*< Unsigned 8-bit samples */;
 enum AUDIO_S8 = 0x8008  /*< Signed 8-bit samples */;
 enum AUDIO_U16LSB = 0x0010  /*< Unsigned 16-bit samples */;
@@ -87,30 +87,30 @@ enum AUDIO_U16MSB = 0x1010  /*< As above, but big-endian byte order */;
 enum AUDIO_S16MSB = 0x9010  /*< As above, but big-endian byte order */;
 enum AUDIO_U16 = AUDIO_U16LSB;
 enum AUDIO_S16 = AUDIO_S16LSB;
-/*@}*/
+/* */
 
 /**
  *  \name int32 support
  */
-/*@{*/
+/* */
 enum AUDIO_S32LSB = 0x8020  /*< 32-bit integer samples */;
 enum AUDIO_S32MSB = 0x9020  /*< As above, but big-endian byte order */;
 enum AUDIO_S32 = AUDIO_S32LSB;
-/*@}*/
+/* */
 
 /**
  *  \name float32 support
  */
-/*@{*/
+/* */
 enum AUDIO_F32LSB = 0x8120  /*< 32-bit floating point samples */;
 enum AUDIO_F32MSB = 0x9120  /*< As above, but big-endian byte order */;
 enum AUDIO_F32 = AUDIO_F32LSB;
-/*@}*/
+/* */
 
 /**
  *  \name Native audio byte ordering
  */
-/*@{*/
+/* */
 version (LittleEndian) {
 enum AUDIO_U16SYS = AUDIO_U16LSB;
 enum AUDIO_S16SYS = AUDIO_S16LSB;
@@ -122,21 +122,21 @@ enum AUDIO_S16SYS = AUDIO_S16MSB;
 enum AUDIO_S32SYS = AUDIO_S32MSB;
 enum AUDIO_F32SYS = AUDIO_F32MSB;
 }
-/*@}*/
+/* */
 
 /**
  *  \name Allow change flags
  *
  *  Which audio format changes are allowed when opening a device.
  */
-/*@{*/
+/* */
 enum SDL_AUDIO_ALLOW_FREQUENCY_CHANGE = 0x00000001;
 enum SDL_AUDIO_ALLOW_FORMAT_CHANGE = 0x00000002;
 enum SDL_AUDIO_ALLOW_CHANNELS_CHANGE = 0x00000004;
 enum SDL_AUDIO_ALLOW_ANY_CHANGE = (SDL_AUDIO_ALLOW_FREQUENCY_CHANGE|SDL_AUDIO_ALLOW_FORMAT_CHANGE|SDL_AUDIO_ALLOW_CHANNELS_CHANGE);
-/*@}*/
+/* */
 
-/*@}*//*Audio flags*/
+/* *//*Audio flags*/
 
 /**
  *  This function is called when the audio device needs more data.
@@ -198,10 +198,10 @@ struct SDL_AudioCVT
  *  These functions return the list of built in audio drivers, in the
  *  order that they are normally initialized by default.
  */
-/*@{*/
+/* */
 int  SDL_GetNumAudioDrivers();
 const char * SDL_GetAudioDriver(int index);
-/*@}*/
+/* */
 
 /**
  *  \name Initialization and cleanup
@@ -210,10 +210,10 @@ const char * SDL_GetAudioDriver(int index);
  *            you have a specific need to specify the audio driver you want to
  *            use.  You should normally use SDL_Init() or SDL_InitSubSystem().
  */
-/*@{*/
+/* */
 int  SDL_AudioInit(const char *driver_name);
 void  SDL_AudioQuit();
-/*@}*/
+/* */
 
 /**
  *  This function returns the name of the current audio driver, or NULL
@@ -339,7 +339,7 @@ SDL_AudioDeviceID  SDL_OpenAudioDevice(const char
  *
  *  Get the current audio state.
  */
-/*@{*/
+/* */
 alias SDL_AudioStatus = int;
 enum : SDL_AudioStatus
 {
@@ -351,7 +351,7 @@ SDL_AudioStatus  SDL_GetAudioStatus();
 
 SDL_AudioStatus 
 SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev);
-/*@}*//*Audio State*/
+/* *//*Audio State*/
 
 /**
  *  \name Pause audio functions
@@ -362,11 +362,11 @@ SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev);
  *  data for your callback function after opening the audio device.
  *  Silence will be written to the audio device during the pause.
  */
-/*@{*/
+/* */
 void  SDL_PauseAudio(int pause_on);
 void  SDL_PauseAudioDevice(SDL_AudioDeviceID dev,
                                                   int pause_on);
-/*@}*//*Pause audio functions*/
+/* *//*Pause audio functions*/
 
 /**
  *  This function loads a WAVE from the data source, automatically freeing
@@ -457,12 +457,12 @@ void  SDL_MixAudioFormat(Uint8 * dst,
  *  the callback function is not running.  Do not call these from the callback
  *  function or you will cause deadlock.
  */
-/*@{*/
+/* */
 void  SDL_LockAudio();
 void  SDL_LockAudioDevice(SDL_AudioDeviceID dev);
 void  SDL_UnlockAudio();
 void  SDL_UnlockAudioDevice(SDL_AudioDeviceID dev);
-/*@}*//*Audio lock functions*/
+/* *//*Audio lock functions*/
 
 /**
  *  This function shuts down audio processing and closes the audio device.

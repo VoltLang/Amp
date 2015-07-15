@@ -132,12 +132,12 @@ struct SDL_Haptic {}
  *
  *  Different haptic features a device can have.
  */
-/*@{*/
+/* */
 
 /**
  *  \name Haptic effects
  */
-/*@{*/
+/* */
 
 /**
  *  \brief Constant effect supported.
@@ -249,7 +249,7 @@ enum SDL_HAPTIC_FRICTION = (1<<10);
  */
 enum SDL_HAPTIC_CUSTOM = (1<<11);
 
-/*@}*//*Haptic effects*/
+/* *//*Haptic effects*/
 
 /* These last few are features the device has, not effects */
 
@@ -292,7 +292,7 @@ enum SDL_HAPTIC_PAUSE = (1<<15);
 /**
  * \name Direction encodings
  */
-/*@{*/
+/* */
 
 /**
  *  \brief Uses polar coordinates for the direction.
@@ -315,9 +315,9 @@ enum SDL_HAPTIC_CARTESIAN = 1;
  */
 enum SDL_HAPTIC_SPHERICAL = 2;
 
-/*@}*//*Direction encodings*/
+/* *//*Direction encodings*/
 
-/*@}*//*Haptic features*/
+/* *//*Haptic features*/
 
 /*
  * Misc defines.

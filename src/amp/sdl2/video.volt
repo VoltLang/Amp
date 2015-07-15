@@ -819,7 +819,7 @@ void SDL_DisableScreenSaver();
 /**
  *  \name OpenGL support functions
  */
-/*@{*/
+/* */
 
 /**
  *  \brief Dynamically load an OpenGL library.

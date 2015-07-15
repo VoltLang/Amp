@@ -41,12 +41,12 @@ import amp.sdl2.rwops;
  *  \internal
  *  Used internally (read-only).
  */
-/*@{*/
+/* */
 enum SDL_SWSURFACE = 0;
 enum SDL_PREALLOC = 0x00000001;
 enum SDL_RLEACCEL = 0x00000002;
 enum SDL_DONTFREE = 0x00000004;
-/*@}*//*Surface flags*/
+/* *//*Surface flags*/
 
 /**
  *  Evaluates to true if the surface needs to be locked before access.

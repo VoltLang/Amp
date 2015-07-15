@@ -93,7 +93,7 @@ struct SDL_RWops
  *
  *  Functions to create SDL_RWops structures from various data streams.
  */
-/*@{*/
+/* */
 
  SDL_RWops * SDL_RWFromFile(const char *file,
                                                   const char *mode);
@@ -105,7 +105,7 @@ struct SDL_RWops
  SDL_RWops * SDL_RWFromConstMem(const void *mem,
                                                       int size);
 
-/*@}*//*RWFrom functions*/
+/* *//*RWFrom functions*/
 
 
  SDL_RWops * SDL_AllocRW();
@@ -120,8 +120,8 @@ enum RW_SEEK_END = 2;       /**< Seek relative to the end of data */
  *
  *  Macros to easily read and write from an SDL_RWops structure.
  */
-/*@{*/
-/*@}*//*Read/write macros*/
+/* */
+/* *//*Read/write macros*/
 
 
 /**
@@ -129,7 +129,7 @@ enum RW_SEEK_END = 2;       /**< Seek relative to the end of data */
  *
  *  Read an item of the specified endianness and return in native format.
  */
-/*@{*/
+/* */
  Uint8  SDL_ReadU8(SDL_RWops * src);
  Uint16  SDL_ReadLE16(SDL_RWops * src);
  Uint16  SDL_ReadBE16(SDL_RWops * src);
@@ -137,14 +137,14 @@ enum RW_SEEK_END = 2;       /**< Seek relative to the end of data */
  Uint32  SDL_ReadBE32(SDL_RWops * src);
  Uint64  SDL_ReadLE64(SDL_RWops * src);
  Uint64  SDL_ReadBE64(SDL_RWops * src);
-/*@}*//*Read endian functions*/
+/* *//*Read endian functions*/
 
 /**
  *  \name Write endian functions
  *
  *  Write an item of native format to the specified endianness.
  */
-/*@{*/
+/* */
  size_t  SDL_WriteU8(SDL_RWops * dst, Uint8 value);
  size_t  SDL_WriteLE16(SDL_RWops * dst, Uint16 value);
  size_t  SDL_WriteBE16(SDL_RWops * dst, Uint16 value);
@@ -152,5 +152,5 @@ enum RW_SEEK_END = 2;       /**< Seek relative to the end of data */
  size_t  SDL_WriteBE32(SDL_RWops * dst, Uint32 value);
  size_t  SDL_WriteLE64(SDL_RWops * dst, Uint64 value);
  size_t  SDL_WriteBE64(SDL_RWops * dst, Uint64 value);
-/*@}*//*Write endian functions*/
+/* *//*Write endian functions*/
 

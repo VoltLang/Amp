@@ -534,7 +534,7 @@ union SDL_Event
  */
 void SDL_PumpEvents();
 
-/*@{*/
+/* */
 alias SDL_eventaction = int;
 enum : SDL_eventaction
 {
@@ -564,7 +564,7 @@ enum : SDL_eventaction
 int SDL_PeepEvents(SDL_Event * events, int numevents,
                                            SDL_eventaction action,
                                            Uint32 minType, Uint32 maxType);
-/*@}*/
+/* */
 
 /**
  *  Checks to see if certain event types are in the event queue.
@@ -675,7 +675,7 @@ void  SDL_DelEventWatch(SDL_EventFilter filter,
 void  SDL_FilterEvents(SDL_EventFilter filter,
                                               void *userdata);
 
-/*@{*/
+/* */
 enum SDL_QUERY = -1;
 enum SDL_IGNORE = 0;
 enum SDL_DISABLE = 0;
@@ -691,7 +691,7 @@ enum SDL_ENABLE = 1;
  *     current processing state of the specified event.
  */
 Uint8  SDL_EventState(Uint32 type, int state);
-/*@}*/
+/* */
 Uint8 SDL_GetEventState(Uint32 type) { return SDL_EventState(type, SDL_QUERY); }
 
 /**

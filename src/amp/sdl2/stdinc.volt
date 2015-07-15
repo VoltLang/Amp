@@ -30,7 +30,7 @@ extern (C):
 /**
  *  \name Basic data types
  */
-/*@{*/
+/* */
 
 alias SDL_bool = int;
 enum
@@ -73,7 +73,7 @@ alias Sint64 = long;
  */
 alias Uint64 = ulong;
 
-/*@}*//*Basic data types*/
+/* *//*Basic data types*/
 
 
 void * SDL_malloc(size_t size);

@@ -75,7 +75,7 @@ alias SDL_ThreadFunction = int function(void *data);
  *    from SDL_GetThreadName().
  */
 SDL_Thread *
-SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data);
+SDL_CreateThread(SDL_ThreadFunction func, const char *name, void *data);
 
 /**
  * Get the thread name, as it was specified in SDL_CreateThread().

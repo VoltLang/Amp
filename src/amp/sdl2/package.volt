@@ -68,6 +68,7 @@ public import amp.sdl2.clipboard;
 public import amp.sdl2.cpuinfo;
 public import amp.sdl2.error;
 public import amp.sdl2.events;
+public import amp.sdl2.filesystem;
 public import amp.sdl2.gamecontroller;
 public import amp.sdl2.gesture;
 public import amp.sdl2.haptic;

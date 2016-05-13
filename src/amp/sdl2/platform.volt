@@ -30,5 +30,5 @@ extern (C):
 /**
  *  \brief Gets the name of the platform.
  */
-const char * SDL_GetPlatform (void);
+const char * SDL_GetPlatform ();
 

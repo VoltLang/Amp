@@ -21,7 +21,7 @@
 module amp.sdl2._version;
 extern (C):
 
-/**
+/*
  *  \file SDL_version.h
  *
  *  This header defines the current SDL version.
@@ -29,7 +29,7 @@ extern (C):
 
 import amp.sdl2.stdinc;
 
-/**
+/*
  *  \brief Information the version of SDL in use.
  *
  *  Represents the library's version as three levels: major revision

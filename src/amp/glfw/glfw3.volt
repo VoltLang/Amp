@@ -1,5 +1,5 @@
 module amp.glfw.glfw3;
-/*************************************************************************
+/*
  * GLFW - An OpenGL library
  * API version: 3.0
  * WWW:         http://www.glfw.org/
@@ -75,13 +75,6 @@ extern(C) {
  * GLFW API tokens
  *************************************************************************/
 
-/*! @name GLFW version macros
- *  @{ */
-/*! @brief The major version number of the GLFW library.
- *
- *  This is incremented when the API is changed in non-compatible ways.
- *  @ingroup init
- */
 enum GLFW_VERSION_MAJOR =           3;
 /*! @brief The minor version number of the GLFW library.
  *
@@ -97,7 +90,6 @@ enum GLFW_VERSION_MINOR =           0;
  *  @ingroup init
  */
 enum GLFW_VERSION_REVISION =        2;
-/*! @} */
 
 /*! @name Key and button actions
  *  @{ */
@@ -113,7 +105,6 @@ enum GLFW_PRESS =                   1;
  *  @ingroup input
  */
 enum GLFW_REPEAT =                  2;
-/*! @} */
 
 /*! @defgroup keys Keyboard keys
  *
@@ -264,11 +255,10 @@ enum GLFW_KEY_RIGHT_SUPER =         347;
 enum GLFW_KEY_MENU =                348;
 enum GLFW_KEY_LAST =                GLFW_KEY_MENU;
 
-/*! @} */
+
 
 /*! @defgroup mods Modifier key flags
- *  @ingroup input
- *  @{ */
+ *  @ingroup input */
 
 /*! @brief If this bit is set one or more Shift keys were held down.
  */
@@ -283,11 +273,9 @@ enum GLFW_MOD_ALT =              0x0004;
  */
 enum GLFW_MOD_SUPER =            0x0008;
 
-/*! @} */
 
 /*! @defgroup buttons Mouse buttons
- *  @ingroup input
- *  @{ */
+ *  @ingroup input */
 enum GLFW_MOUSE_BUTTON_1 =          0;
 enum GLFW_MOUSE_BUTTON_2 =          1;
 enum GLFW_MOUSE_BUTTON_3 =          2;
@@ -300,11 +288,9 @@ enum GLFW_MOUSE_BUTTON_LAST =       GLFW_MOUSE_BUTTON_8;
 enum GLFW_MOUSE_BUTTON_LEFT =       GLFW_MOUSE_BUTTON_1;
 enum GLFW_MOUSE_BUTTON_RIGHT =      GLFW_MOUSE_BUTTON_2;
 enum GLFW_MOUSE_BUTTON_MIDDLE =     GLFW_MOUSE_BUTTON_3;
-/*! @} */
 
 /*! @defgroup joysticks Joysticks
- *  @ingroup input
- *  @{ */
+ *  @ingroup input */
 enum GLFW_JOYSTICK_1 =              0;
 enum GLFW_JOYSTICK_2 =              1;
 enum GLFW_JOYSTICK_3 =              2;
@@ -322,11 +308,9 @@ enum GLFW_JOYSTICK_14 =             13;
 enum GLFW_JOYSTICK_15 =             14;
 enum GLFW_JOYSTICK_16 =             15;
 enum GLFW_JOYSTICK_LAST =           GLFW_JOYSTICK_16;
-/*! @} */
 
 /*! @defgroup errors Error codes
- *  @ingroup error
- *  @{ */
+ *  @ingroup error */
 /*! @brief GLFW has not been initialized.
  */
 enum GLFW_NOT_INITIALIZED =         0x00010001;
@@ -357,7 +341,6 @@ enum GLFW_PLATFORM_ERROR =          0x00010008;
 /*! @brief The clipboard did not contain data in the requested format.
  */
 enum GLFW_FORMAT_UNAVAILABLE =      0x00010009;
-/*! @} */
 
 enum GLFW_FOCUSED =                 0x00020001;
 enum GLFW_ICONIFIED =               0x00020002;
@@ -2119,11 +2102,6 @@ int glfwExtensionSupported(const(char)* extension);
  *  @ingroup context
  */
 GLFWglproc glfwGetProcAddress(const(char)* procname);
-
-
-/*************************************************************************
- * Global definition cleanup
- *************************************************************************/
 
 
 

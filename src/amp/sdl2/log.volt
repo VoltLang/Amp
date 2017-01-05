@@ -37,7 +37,7 @@ extern (C):
  *      Others: standard error output (stderr)
  */
 
-import core.stdc.stdarg;
+import core.varargs;
 
 import amp.sdl2.stdinc;
 

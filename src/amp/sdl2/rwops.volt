@@ -28,7 +28,7 @@ extern (C):
  *  data streams.  It can easily be extended to files, memory, etc.
  */
 
-import core.stdc.stdio;
+import core.c.stdio;
 
 import amp.sdl2.stdinc;
 import amp.sdl2.error;

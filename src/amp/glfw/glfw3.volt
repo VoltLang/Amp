@@ -91,8 +91,7 @@ enum GLFW_VERSION_MINOR =           0;
  */
 enum GLFW_VERSION_REVISION =        2;
 
-/*! @name Key and button actions
- *  @{ */
+/*! @name Key and button actions*/
 /*! @brief The key or button was released.
  *  @ingroup input
  */
@@ -124,7 +123,6 @@ enum GLFW_REPEAT =                  2;
  *    "BACKSPACE", etc.)
  *
  *  @ingroup input
- *  @{
  */
 
 /* The unknown key */

@@ -18,7 +18,7 @@
      misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
-module amp.sdl2.sdl2;
+module amp.sdl2;
 extern (C):
 
 /*

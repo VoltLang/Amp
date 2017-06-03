@@ -1,4 +1,4 @@
-module amp.tcod.libtcod;
+module amp.tcod;
 
 public import amp.tcod.bresenham;
 public import amp.tcod.bsp;

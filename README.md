@@ -26,4 +26,4 @@ _Retrieved 28th of July, 2013._
 Bindings based off of libTCOD 1.5.1.
 _Retrieved 17th of September, 2013._
 
-
+Don't forget to update `doc/index.md` as well.

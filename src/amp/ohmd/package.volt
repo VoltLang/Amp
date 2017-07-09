@@ -4,12 +4,11 @@
  * Copyright (C) 2013 Jakob Bornecrantz.
  * Distributed under the Boost 1.0 licence, see LICENSE for full text.
  */
+
 /*!
  * Main header for OpenHMD public API.
  **/
 module amp.ohmd;
-
-extern(C):
 
 /*! Maximum length of a string, including termination, in OpenHMD. */
 enum size_t OHMD_STR_SIZE = 256;
@@ -152,13 +151,16 @@ enum ohmd_button_state {
 }
 
 /*! An opaque pointer to a context structure. */
-struct ohmd_context {}
+struct ohmd_context { }
 
 /*! An opaque pointer to a structure representing a device, such as an HMD. */
-struct ohmd_device {}
+struct ohmd_device { }
 
 /*! An opaque pointer to a structure representing arguments for a device. */
-struct ohmd_device_settings {}
+struct ohmd_device_settings { }
+
+
+extern(C):
 
 /*!
  * Create an OpenHMD context.
@@ -213,19 +215,19 @@ fn ohmd_ctx_update(ctx: ohmd_context*);
  **/
 fn ohmd_ctx_probe(ctx: ohmd_context*) int;
 
-/*
+/*!
  * Get string from openhmd.
  *
  * Gets a string from OpenHMD. This is where non-device specific strings reside.
  * This is where the distortion shader sources can be retrieved.
  *
  * @param type The name of the string to fetch. One of OHMD_GLSL_DISTORTION_FRAG_SRC, and OHMD_GLSL_DISTORTION_FRAG_SRC.
- * @param out The location to return a const char*
+ * @param[out] _out The location to return a const char*
  * @return 0 on success, <0 on failure.
  **/
 fn ohmd_gets(type: ohmd_string_description, _out: const(char)**) int;
 
-/*
+/*!
  * Get device description from enumeration list index.
  *
  * Gets a human readable device description string from a zero indexed enumeration index
@@ -237,7 +239,7 @@ fn ohmd_gets(type: ohmd_string_description, _out: const(char)**) int;
  * ohmd_ctx_probe must be called before calling ohmd_list_gets.
  *
  * @param ctx A (probed) context.
- * @param index An index, between 0 and the value returned from ohmd_ctx_probe.
+ * @param _index An index, between 0 and the value returned from ohmd_ctx_probe.
  * @param type The type of data to fetch. One of OHMD_VENDOR, OHMD_PRODUCT and OHMD_PATH.
  * @return a string with a human readable device name.
  **/
@@ -253,7 +255,7 @@ fn ohmd_gets(type: ohmd_string_description, _out: const(char)**) int;
  * ohmd_ctx_probe must be called before calling ohmd_list_open_device.
  *
  * @param ctx A (probed) context.
- * @param index An index, between 0 and the value returned from ohmd_ctx_probe.
+ * @param _index An index, between 0 and the value returned from ohmd_ctx_probe.
  * @return a pointer to an ohmd_device, which represents a hardware device, such as an HMD.
  **/
 fn ohmd_list_open_device(ctx: ohmd_context*, index: int) ohmd_device*;
@@ -268,7 +270,7 @@ fn ohmd_list_open_device(ctx: ohmd_context*, index: int) ohmd_device*;
  * ohmd_ctx_probe must be called before calling ohmd_list_open_device.
  *
  * @param ctx A (probed) context.
- * @param index An index, between 0 and the value returned from ohmd_ctx_probe.
+ * @param _index An index, between 0 and the value returned from ohmd_ctx_probe.
  * @param settings A pointer to a device settings struct.
  * @return a pointer to an ohmd_device, which represents a hardware device, such as an HMD.
  **/
@@ -315,7 +317,7 @@ fn ohmd_close_device(device: ohmd_device*) int;
  *
  * @param device An open device to retrieve the value from.
  * @param type What type of value to retrieve, see ohmd_float_value section for more information.
- * @param[out] out A pointer to a float, or float array where the retrieved value should be written.
+ * @param[out] _out A pointer to a float, or float array where the retrieved value should be written.
  * @return 0 on success, < 0 on failure.
  **/
 fn ohmd_device_getf(device: ohmd_device*, type: ohmd_float_value, _out: float*) int;
@@ -325,7 +327,7 @@ fn ohmd_device_getf(device: ohmd_device*, type: ohmd_float_value, _out: float*) 
  *
  * @param device An open device to set the value in.
  * @param type What type of value to set, see ohmd_float_value section for more information.
- * @param in A pointer to a float, or float array where the new value is stored.
+ * @param _in A pointer to a float, or float array where the new value is stored.
  * @return 0 on success, < 0 on failure.
  **/
 fn ohmd_device_setf(device: ohmd_device*, type: ohmd_float_value, _in: const(float)*) int;
@@ -335,7 +337,7 @@ fn ohmd_device_setf(device: ohmd_device*, type: ohmd_float_value, _in: const(flo
  *
  * @param device An open device to retrieve the value from.
  * @param type What type of value to retrieve, ohmd_int_value section for more information.
- * @param[out] out A pointer to an integer, or integer array where the retrieved value should be written.
+ * @param[out] _out A pointer to an integer, or integer array where the retrieved value should be written.
  * @return 0 on success, < 0 on failure.
  **/
 fn ohmd_device_geti(device: ohmd_device*, type: ohmd_int_value, _out: int*) int;
@@ -345,7 +347,7 @@ fn ohmd_device_geti(device: ohmd_device*, type: ohmd_int_value, _out: int*) int;
  *
  * @param device An open device to set the value in.
  * @param type What type of value to set, see ohmd_float_value section for more information.
- * @param in A pointer to a int, or int array where the new value is stored.
+ * @param _in A pointer to a int, or int array where the new value is stored.
  * @return 0 on success, < 0 on failure.
  **/
 fn ohmd_device_seti(device: ohmd_device*, type: ohmd_int_value, _in: const(int)*) int;
@@ -355,7 +357,7 @@ fn ohmd_device_seti(device: ohmd_device*, type: ohmd_int_value, _in: const(int)*
  *
  * @param device An open device to set the value in.
  * @param type What type of value to set, see ohmd_float_value section for more information.
- * @param in A pointer to the void* casted object.
+ * @param _in A pointer to the void* casted object.
  * @return 0 on success, < 0 on failure.
  **/
 fn ohmd_device_set_data(device: ohmd_device*, type: ohmd_data_value, _in: const(void)*) int;

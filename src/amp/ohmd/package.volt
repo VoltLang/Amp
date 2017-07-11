@@ -41,94 +41,94 @@ enum ohmd_string_description {
 /*! A collection of float value information types, used for getting and setting information with
     ohmd_device_getf() and ohmd_device_setf(). */
 enum ohmd_float_value {
-	/*! float[4] (get): Absolute rotation of the device, in space, as a quaternion (x, y, z, w). */
+	/*! @p float[4] (get): Absolute rotation of the device, in space, as a quaternion (x, y, z, w). */
 	ROTATION_QUAT                    =  1,
 
-	/*! float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a modelview matrix for the
+	/*! @p float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a modelview matrix for the
 	    left eye of the HMD. */
 	LEFT_EYE_GL_MODELVIEW_MATRIX     =  2,
-	/*! float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a modelview matrix for the
+	/*! @p float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a modelview matrix for the
 	    right eye of the HMD. */
 	RIGHT_EYE_GL_MODELVIEW_MATRIX    =  3,
 
-	/*! float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a projection matrix for the
+	/*! @p float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a projection matrix for the
 	    left eye of the HMD. */
 	LEFT_EYE_GL_PROJECTION_MATRIX    =  4,
-	/*! float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a projection matrix for the
+	/*! @p float[16] (get): A "ready to use" OpenGL style 4x4 matrix with a projection matrix for the
 	    right eye of the HMD. */
 	RIGHT_EYE_GL_PROJECTION_MATRIX   =  5,
 
-	/*! float[3] (get): A 3-D vector representing the absolute position of the device, in space. */
+	/*! @p float[3] (get): A 3-D vector representing the absolute position of the device, in space. */
 	POSITION_VECTOR                  =  6,
 
-	/*! float[1] (get): Physical width of the device screen in metres. */
+	/*! @p float[1] (get): Physical width of the device screen in metres. */
 	SCREEN_HORIZONTAL_SIZE           =  7,
-	/*! float[1] (get): Physical height of the device screen in metres. */
+	/*! @p float[1] (get): Physical height of the device screen in metres. */
 	SCREEN_VERTICAL_SIZE             =  8,
 
-	/*! float[1] (get): Physical separation of the device lenses in metres. */
+	/*! @p float[1] (get): Physical separation of the device lenses in metres. */
 	LENS_HORIZONTAL_SEPARATION       =  9,
-	/*! float[1] (get): Physical vertical position of the lenses in metres. */
+	/*! @p float[1] (get): Physical vertical position of the lenses in metres. */
 	LENS_VERTICAL_POSITION           = 10,
 
-	/*! float[1] (get): Physical field of view for the left eye in degrees. */
+	/*! @p float[1] (get): Physical field of view for the left eye in degrees. */
 	LEFT_EYE_FOV                     = 11,
-	/*! float[1] (get): Physical display aspect ratio for the left eye screen. */
+	/*! @p float[1] (get): Physical display aspect ratio for the left eye screen. */
 	LEFT_EYE_ASPECT_RATIO            = 12,
-	/*! float[1] (get): Physical field of view for the left right in degrees. */
+	/*! @p float[1] (get): Physical field of view for the left right in degrees. */
 	RIGHT_EYE_FOV                    = 13,
-	/*! float[1] (get): Physical display aspect ratio for the right eye screen. */
+	/*! @p float[1] (get): Physical display aspect ratio for the right eye screen. */
 	RIGHT_EYE_ASPECT_RATIO           = 14,
 
-	/*! float[1] (get, set): Physical interpupillary distance of the user in metres. */
+	/*! @p float[1] (get, set): Physical interpupillary distance of the user in metres. */
 	EYE_IPD                          = 15,
 
-	/*! float[1] (get, set): Z-far value for the projection matrix calculations (i.e. drawing distance). */
+	/*! @p float[1] (get, set): Z-far value for the projection matrix calculations (i.e. drawing distance). */
 	PROJECTION_ZFAR                  = 16,
-	/*! float[1] (get, set): Z-near value for the projection matrix calculations (i.e. close clipping distance). */
+	/*! @p float[1] (get, set): Z-near value for the projection matrix calculations (i.e. close clipping distance). */
 	PROJECTION_ZNEAR                 = 17,
 
-	/*! float[6] (get): Device specific distortion value. */
+	/*! @p float[6] (get): Device specific distortion value. */
 	DISTORTION_K                     = 18,
 
 	/*!
-	 * float[10] (set): Perform sensor fusion on values from external sensors.
+	 * @p float[10] (set): Perform sensor fusion on values from external sensors.
 	 *
 	 * Values are: dt (time since last update in seconds) X, Y, Z gyro, X, Y, Z accelerometer and X, Y, Z magnetometer.
-	 **/
+	 */
 	EXTERNAL_SENSOR_FUSION           = 19,
 
-	/*! float[4] (get): Universal shader distortion coefficients (PanoTools model <a,b,c,d>. */
+	/*! @p float[4] (get): Universal shader distortion coefficients (PanoTools model <a,b,c,d>. */
 	UNIVERSAL_DISTORTION_K           = 20,
 
-	/*! float[3] (get): Universal shader aberration coefficients (post warp scaling <r,g,b>. */
+	/*! @p float[3] (get): Universal shader aberration coefficients (post warp scaling <r,g,b>. */
 	UNIVERSAL_ABERRATION_K           = 21,
 
 }
 
 /*! A collection of int value information types used for getting information with ohmd_device_geti(). */
 enum ohmd_int_value {
-	/*! int[1] (get): Physical horizontal resolution of the device screen. */
+	/*! @p int[1] (get): Physical horizontal resolution of the device screen. */
 	SCREEN_HORIZONTAL_RESOLUTION     =  0,
-	/*! int[1] (get): Physical vertical resolution of the device screen. */
+	/*! @p int[1] (get): Physical vertical resolution of the device screen. */
 	SCREEN_VERTICAL_RESOLUTION       =  1,
 
-	/*! int[1] (get): Get number of events waiting in digital input event queue. */
+	/*! @p int[1] (get): Get number of events waiting in digital input event queue. */
 	BUTTON_EVENT_COUNT               =  2,
-	/*! int[1] (get): Get if the there was an overflow in the event queue causing events to be dropped. */
+	/*! @p int[1] (get): Get if the there was an overflow in the event queue causing events to be dropped. */
 	BUTTON_EVENT_OVERFLOW            =  3,
-	/*! int[1] (get): Get the number of physical digital input buttons on the device. */
+	/*! @p int[1] (get): Get the number of physical digital input buttons on the device. */
 	BUTTON_COUNT                     =  4,
-	/*! int[2] (get): Performs an event pop action. Format: [button_index, button_state], where button_state is either OHMD_BUTTON_DOWN or OHMD_BUTTON_UP */
+	/*! @p int[2] (get): Performs an event pop action. Format: [button_index, button_state], where button_state is either OHMD_BUTTON_DOWN or OHMD_BUTTON_UP */
 	BUTTON_POP_EVENT                 =  5,
 }
 
 /*! A collection of data information types used for setting information with ohmd_set_data(). */
 enum ohmd_data_value {
-	/*! void* (set): Set void* data for use in the internal drivers. */
+	/*! @p void* (set): Set void* data for use in the internal drivers. */
 	DRIVER_DATA		= 0,
 	/*!
-	 * ohmd_device_properties* (set):
+	 * @p ohmd_device_properties* (set):
 	 * Set the device properties based on the ohmd_device_properties struct for use in the internal drivers.
 	 *
 	 * This can be used to fill in information about the device internally, such as Android, or for setting profiles.
@@ -239,7 +239,7 @@ fn ohmd_gets(type: ohmd_string_description, _out: const(char)**) int;
  * ohmd_ctx_probe must be called before calling ohmd_list_gets.
  *
  * @param ctx A (probed) context.
- * @param _index An index, between 0 and the value returned from ohmd_ctx_probe.
+ * @param index An index, between 0 and the value returned from ohmd_ctx_probe.
  * @param type The type of data to fetch. One of OHMD_VENDOR, OHMD_PRODUCT and OHMD_PATH.
  * @return a string with a human readable device name.
  **/
@@ -255,7 +255,7 @@ fn ohmd_gets(type: ohmd_string_description, _out: const(char)**) int;
  * ohmd_ctx_probe must be called before calling ohmd_list_open_device.
  *
  * @param ctx A (probed) context.
- * @param _index An index, between 0 and the value returned from ohmd_ctx_probe.
+ * @param index An index, between 0 and the value returned from ohmd_ctx_probe.
  * @return a pointer to an ohmd_device, which represents a hardware device, such as an HMD.
  **/
 fn ohmd_list_open_device(ctx: ohmd_context*, index: int) ohmd_device*;
@@ -270,7 +270,7 @@ fn ohmd_list_open_device(ctx: ohmd_context*, index: int) ohmd_device*;
  * ohmd_ctx_probe must be called before calling ohmd_list_open_device.
  *
  * @param ctx A (probed) context.
- * @param _index An index, between 0 and the value returned from ohmd_ctx_probe.
+ * @param index An index, between 0 and the value returned from ohmd_ctx_probe.
  * @param settings A pointer to a device settings struct.
  * @return a pointer to an ohmd_device, which represents a hardware device, such as an HMD.
  **/

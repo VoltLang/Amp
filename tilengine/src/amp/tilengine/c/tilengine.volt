@@ -119,7 +119,7 @@ struct TLN_PixelMap
 	dx, dy: i16;
 }
 
-alias TLN_Tile = void*;
+alias TLN_Tile = Tile*;
 alias TLN_Tileset = void*;
 alias TLN_Tilemap = void*;
 alias TLN_Palette = void*;
@@ -285,7 +285,7 @@ fn TLN_LoadSpriteset (name: const(char)*) TLN_Spriteset;
 fn TLN_CloneSpriteset (src: TLN_Spriteset) TLN_Spriteset;
 fn TLN_GetSpriteInfo (spriteset: TLN_Spriteset, entry: i32, info: TLN_SpriteInfo*) bool;
 fn TLN_GetSpritesetPalette (spriteset: TLN_Spriteset) TLN_Palette;
-fn TLN_FindSpritesetSprite (spriteset: TLN_Spriteset, name: char*) i32;
+fn TLN_FindSpritesetSprite (spriteset: TLN_Spriteset, name: const(char)*) i32;
 fn TLN_SetSpritesetData (spriteset: TLN_Spriteset, entry: i32, data: TLN_SpriteData*, pixels: void*, pitch: i32) bool;
 fn TLN_DeleteSpriteset (spriteset: TLN_Spriteset) bool;
 /**@}*/

@@ -191,12 +191,12 @@ public:
 		return TLN_GetUsedMemory();
 	}
 
-	fn setBackgroundColour(c: Colour)
+	@property fn backgroundColour(c: Colour)
 	{
 		TLN_SetBGColor(c.r, c.g, c.b);
 	}
 
-	fn setBackgroundColour(tilemap: Tilemap)
+	@property fn backgroundColour(tilemap: Tilemap)
 	{
 		TLN_SetBGColorFromTilemap(tilemap.mPtr);
 	}
@@ -223,12 +223,12 @@ public:
 		TLN_SetRenderTarget(data.ptr, pitch);
 	}
 
-	fn setRasterCallback(callback: fn!C(i32))
+	@property fn rasterCallback(callback: fn!C(i32))
 	{
 		TLN_SetRasterCallback(callback);
 	}
 
-	fn setFrameCallback(callback: fn!C(i32))
+	@property fn frameCallback(callback: fn!C(i32))
 	{
 		TLN_SetFrameCallback(callback);
 	}
@@ -238,7 +238,7 @@ public:
 		TLN_SetLoadPath(toStringz(val));
 	}
 	
-	fn setCustomBlendFunction(func: fn!C(u8, u8) u8)
+	@property fn customBlendFunction(func: fn!C(u8, u8) u8)
 	{
 		TLN_SetCustomBlendFunction(func);
 	}
@@ -253,7 +253,7 @@ public:
 		return TLN_DrawNextScanline();
 	}
 
-	fn getAvailableSprite() Sprite
+	@property fn availableSprite() Sprite
 	{
 		index := TLN_GetAvailableSprite();
 		Engine.tlnAssert(index != -1);
@@ -444,7 +444,7 @@ public:
 		Engine.tlnAssert(ok);
 	}
 
-	fn setMap(tilemap: Tilemap)
+	@property fn map(tilemap: Tilemap)
 	{
 		ok := TLN_SetLayer(mIndex, null, tilemap.mPtr);
 		Engine.tlnAssert(ok);
@@ -468,7 +468,7 @@ public:
 		Engine.tlnAssert(ok);
 	}
 
-	fn setPixelMapping(map: PixelMap[])
+	@property fn pixelMapping(map: PixelMap[])
 	{
 		ok := TLN_SetLayerPixelMapping(mIndex, map.ptr);
 		Engine.tlnAssert(ok);
@@ -486,7 +486,7 @@ public:
 		Engine.tlnAssert(ok);
 	}
 
-	fn setColumnOffset(offsets: i32[])
+	@property fn columnOffset(offsets: i32[])
 	{
 		ok := TLN_SetLayerColumnOffset(mIndex, offsets.ptr);
 		Engine.tlnAssert(ok);
@@ -655,7 +655,7 @@ public:
 		Engine.tlnAssert(ok);
 	}
 
-	fn setPaletteAnimationSource(palette: Palette)
+	@property fn paletteAnimationSource(palette: Palette)
 	{
 		ok := TLN_SetPaletteAnimationSource(mIndex, palette.mPtr);
 		Engine.tlnAssert(ok);
@@ -874,7 +874,7 @@ public:
 
 	global fn fromFile(filename: string, layername: string) Tilemap
 	{
-		retval := TLN_LoadTilemap(toStringz(filename), toStringz(layername));
+		retval := TLN_LoadTilemap(toStringz(filename), layername is null ? null : toStringz(layername));
 		Engine.tlnAssert(retval !is null);
 
 		tm: Tilemap;

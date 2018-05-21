@@ -296,7 +296,7 @@ public:
 		TLN_DeleteWindow();
 	}
 
-	fn get() Window*
+	global fn get() Window*
 	{
 		if (!gInit) {
 			throw new TilengineException("Window.get call preceeding Window.create");
@@ -447,6 +447,12 @@ public:
 	@property fn map(tilemap: Tilemap)
 	{
 		ok := TLN_SetLayer(mIndex, null, tilemap.mPtr);
+		Engine.tlnAssert(ok);
+	}
+
+	@property fn bitmap(val: Bitmap)
+	{
+		ok := TLN_SetLayerBitmap(mIndex, val.mPtr);
 		Engine.tlnAssert(ok);
 	}
 

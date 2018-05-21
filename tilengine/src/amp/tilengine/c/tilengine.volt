@@ -2,7 +2,7 @@ module amp.tilengine.c.tilengine;
 extern (C):
 
 enum TILENGINE_VER_MAJ = 1;
-enum TILENGINE_VER_MIN = 19;
+enum TILENGINE_VER_MIN = 20;
 enum TILENGINE_VER_REV = 0;
 enum TILENGINE_VER_HEADER_VERSION =
 	((TILENGINE_VER_MAJ << 16) | (TILENGINE_VER_MIN << 8) | TILENGINE_VER_REV);
@@ -365,6 +365,7 @@ fn TLN_DeleteBitmap (bitmap: TLN_Bitmap) bool;
  * Background layers management */
 /**@{*/
 fn TLN_SetLayer (nlayer: i32, tileset: TLN_Tileset, tilemap: TLN_Tilemap) bool;
+fn TLN_SetLayerBitmap (nlayer: i32, bitmap: TLN_Bitmap) bool;
 fn TLN_SetLayerPalette (nlayer: i32, palette: TLN_Palette) bool;
 fn TLN_SetLayerPosition (nlayer: i32, hstart: i32, vstart: i32) bool;
 fn TLN_SetLayerScaling (nlayer: i32, xfactor: f32, yfactor: f32) bool;
@@ -400,6 +401,8 @@ fn TLN_SetSpritePalette (nsprite: i32, palette: TLN_Palette) bool;
 fn TLN_SetSpriteBlendMode (nsprite: i32, mode: TLN_Blend, factor: u8) bool;
 fn TLN_SetSpriteScaling (nsprite: i32, sx: f32, sy: f32) bool;
 fn TLN_ResetSpriteScaling (nsprite: i32) bool;
+//fn TLN_SetSpriteRotation(nsprite: i32, angle: f32) bool;
+//fn TLN_ResetSpriteRotation(nsprite: i32) bool;
 fn TLN_GetSpritePicture (nsprite: i32) i32;
 fn TLN_GetAvailableSprite () i32;
 fn TLN_EnableSpriteCollision (nsprite: i32, enable: bool) bool;

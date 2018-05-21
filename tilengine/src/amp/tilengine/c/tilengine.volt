@@ -2,8 +2,8 @@ module amp.tilengine.c.tilengine;
 extern (C):
 
 enum TILENGINE_VER_MAJ = 1;
-enum TILENGINE_VER_MIN = 20;
-enum TILENGINE_VER_REV = 0;
+enum TILENGINE_VER_MIN = 21;
+enum TILENGINE_VER_REV = 1;
 enum TILENGINE_VER_HEADER_VERSION =
 	((TILENGINE_VER_MAJ << 16) | (TILENGINE_VER_MIN << 8) | TILENGINE_VER_REV);
 
@@ -137,6 +137,10 @@ enum : TLN_Player
 	PLAYER4,	/*!< Player 4 */
 }
 
+struct SDL_Event {}
+alias TLN_VideoCallback = fn!C(scanline: i32);
+alias TLN_SDLCallback = fn!C(event: SDL_Event*);
+
 alias TLN_Input = i32;
 enum : TLN_Input
 {
@@ -226,8 +230,8 @@ fn TLN_SetBGColorFromTilemap (tilemap: TLN_Tilemap) bool;
 fn TLN_DisableBGColor ();
 fn TLN_SetBGBitmap (bitmap: TLN_Bitmap) bool;
 fn TLN_SetBGPalette (palette: TLN_Palette) bool;
-fn TLN_SetRasterCallback (callback: fn!C(i32));
-fn TLN_SetFrameCallback (callback: fn!C(i32));
+fn TLN_SetRasterCallback (callback: TLN_VideoCallback);
+fn TLN_SetFrameCallback (callback: TLN_VideoCallback);
 fn TLN_SetRenderTarget (data: u8*, pitch: i32);
 fn TLN_UpdateFrame (time: i32);
 fn TLN_BeginFrame (time: i32);
@@ -268,6 +272,7 @@ fn TLN_DeleteWindow ();
 fn TLN_EnableBlur (mode: bool);
 fn TLN_EnableCRTEffect (overlay: TLN_Overlay, overlay_factor: u8, threshold: u8, v0: u8, v1: u8, v2: u8, v3: u8, blur: bool, glow_factor: u8);
 fn TLN_DisableCRTEffect ();
+fn TLN_SetSDLCallback (TLN_SDLCallback);
 fn TLN_Delay (msecs: u32);
 fn TLN_GetTicks () u32;
 fn TLN_BeginWindowFrame (time: i32);

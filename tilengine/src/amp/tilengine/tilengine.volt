@@ -620,10 +620,10 @@ public:
 		Engine.tlnAssert(ok);
 	}
 
-	fn reset()
+	fn resetScaling()
 	{
 		ok := TLN_ResetSpriteScaling(mIndex);
-		Engine.tlnAssert(false);
+		Engine.tlnAssert(ok);
 	}
 
 	@property fn blend(val: BlendMode)

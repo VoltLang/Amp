@@ -1,2 +1,5 @@
 name = "amp.sdl2"
 dependencies = ["watt"]
+# Make SDL2 work otb on Linux.
+[platform.linux]
+commands = ["sdl2-config --libs"]

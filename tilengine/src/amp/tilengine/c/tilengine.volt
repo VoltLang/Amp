@@ -1,9 +1,9 @@
 module amp.tilengine.c.tilengine;
 extern (C):
 
-enum TILENGINE_VER_MAJ = 1;
-enum TILENGINE_VER_MIN = 21;
-enum TILENGINE_VER_REV = 1;
+enum TILENGINE_VER_MAJ = 2;
+enum TILENGINE_VER_MIN = 0;
+enum TILENGINE_VER_REV = 0;
 enum TILENGINE_VER_HEADER_VERSION =
 	((TILENGINE_VER_MAJ << 16) | (TILENGINE_VER_MIN << 8) | TILENGINE_VER_REV);
 
@@ -120,6 +120,7 @@ struct TLN_PixelMap
 }
 
 alias TLN_Tile = Tile*;
+alias TLN_Engine = void*;
 alias TLN_Tileset = void*;
 alias TLN_Tilemap = void*;
 alias TLN_Palette = void*;
@@ -214,9 +215,11 @@ enum : TLN_Error
  * \name Setup
  * Basic setup and management */
 /**@{*/
-fn TLN_Init (hres: i32, vres: i32, numlayers: i32, numsprites: i32, numanimations: i32) bool;
-fn TLN_InitBPP (hres: i32, vres: i32, bpp: i32, numlayers: i32, numsprites: i32, numanimations: i32) bool;
+fn TLN_Init (hres: i32, vres: i32, numlayers: i32, numsprites: i32, numanimations: i32) TLN_Engine;
 fn TLN_Deinit ();
+fn TLN_DeleteContext(context: TLN_Engine);
+fn TLN_SetContext(context: TLN_Engine);
+fn TLN_GetContext() TLN_Engine;
 fn TLN_GetWidth () i32;
 fn TLN_GetHeight () i32;
 fn TLN_GetBPP () i32;

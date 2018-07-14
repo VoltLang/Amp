@@ -159,7 +159,7 @@ public:
 	{
 		if (!gInit) {
 			retval := TLN_Init(hres, vres, numLayers, numSprites, numAnimations);
-			Engine.tlnAssert(retval);
+			Engine.tlnAssert(retval !is null);
 			gInit = true;
 			gInstance.setup(hres, vres, numLayers, numSprites, numAnimations);
 		}

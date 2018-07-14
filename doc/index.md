@@ -33,5 +33,5 @@ Bindings based off of OpenHMD 441a06d791df788bc52b4c0b9c773084cb182499.\
 _Retrieved 8th of July, 2017._
 
 **[Tilengine]({{ "amp.tilengine" | vdoc_find_url }})**\
-Bindings based off of Tilengine 1.21.1\
-_Retrieved 21st of May, 2018.__
+Bindings based off of Tilengine 2.0.0\
+_Retrieved 14th of July, 2018.__

@@ -9,8 +9,9 @@ Bindings between Volt and C libraries.
 ## Bindings
 
 **[SDL2]({{ "amp.sdl2" | vdoc_find_url }})**\
-Bindings based off of SDL2 2.0.5\
-_Retrieved January, 2016._
+Bindings based off of SDL2 2.0.8\
+_Retrieved July, 2018._
+Coverage not complete, some modules and functions may not be bound; patches welcome.
 
 **[SDL2 TTF]({{ "amp.sdl2.ttf" | vdoc_find_url }})**\
 Bindings based off of SDL2 TTF 2.0.14\

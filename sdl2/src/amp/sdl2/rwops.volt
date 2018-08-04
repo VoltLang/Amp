@@ -154,3 +154,4 @@ enum RW_SEEK_END = 2;       /**< Seek relative to the end of data */
  size_t  SDL_WriteBE64(SDL_RWops * dst, Uint64 value);
 /* *//*Write endian functions*/
 
+fn SDL_LoadFile_RW(src: SDL_RWops*, datasize: size_t*, freesrc: i32) void*;

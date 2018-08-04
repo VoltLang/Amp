@@ -88,3 +88,7 @@ SDL_bool  SDL_HasSSE41();
  */
 SDL_bool  SDL_HasSSE42();
 
+fn SDL_HasAVX() SDL_bool;
+fn SDL_HasAVX2() SDL_bool;
+fn SDL_HasNEON() SDL_bool;
+fn SDL_GetSystemRAM() i32;

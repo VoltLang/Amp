@@ -232,7 +232,25 @@ enum SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS = "SDL_JOYSTICK_ALLOW_BACKGROUND_
  */
 enum SDL_HINT_ALLOW_TOPMOST = "SDL_ALLOW_TOPMOST";
 
+enum SDL_HINT_TV_REMOTE_AS_JOYSTICK = "SDL_TV_REMOTE_AS_JOYSTICK";
 
+enum SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES = "SDL_GAMECONTROLLER_IGNORE_DEVICES";
+
+enum SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT = "SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT";
+
+enum SDL_HINT_QTWAYLAND_CONTENT_ORIENTATION = "SDL_QTWAYLAND_CONTENT_ORIENTATION";
+
+enum SDL_HINT_QTWAYLAND_WINDOW_FLAGS = "SDL_QTWAYLAND_WINDOW_FLAGS";
+
+enum SDL_HINT_RETURN_KEY_HIDES_IME = "SDL_RETURN_KEY_HIDES_IME";
+
+enum SDL_HINT_VIDEO_DOUBLE_BUFFER = "SDL_VIDEO_DOUBLE_BUFFER";
+
+enum SDL_HINT_OPENGL_ES_DRIVER = "SDL_OPENGL_ES_DRIVER";
+
+enum SDL_HINT_AUDIO_RESAMPLING_MODE = "SDL_AUDIO_RESAMPLING_MODE";
+
+enum SDL_HINT_AUDIO_CATEGORY = "SDL_AUDIO_CATEGORY";
 
 /**
  *  \brief  An enumeration of hint priorities
@@ -289,3 +307,30 @@ SDL_bool SDL_GetHintBoolean(const char *name, SDL_bool default_value);
  */
  void  SDL_ClearHints();
 
+
+/**
+ * \brief type definition of the hint callback function.
+ */
+alias SDL_HintCallback = fn!C(userdata: void*, name: const(char)*, oldValue: const(char)*, newValue: const(char)*);
+
+/**
+ *  \brief Add a function to watch a particular hint
+ *
+ *  \param name The hint to watch
+ *  \param callback The function to call when the hint value changes
+ *  \param userdata A pointer to pass to the callback function
+ */
+fn SDL_AddHintCallback(name: const(char)*,
+                       callback: SDL_HintCallback,
+                       userdata: void*);
+
+/**
+ *  \brief Remove a function watching a particular hint
+ *
+ *  \param name The hint being watched
+ *  \param callback The function being called when the hint value changes
+ *  \param userdata A pointer being passed to the callback function
+ */
+fn SDL_DelHintCallback(name: const(char)*,
+                      callback: SDL_HintCallback,
+                      userdata: void*);

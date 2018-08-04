@@ -64,6 +64,35 @@ struct SDL_JoystickGUID {
 
 alias SDL_JoystickID = Sint32;
 
+alias SDL_JoystickType = i32;
+enum : SDL_JoystickType
+{
+    SDL_JOYSTICK_TYPE_UNKNOWN,
+    SDL_JOYSTICK_TYPE_GAMECONTROLLER,
+    SDL_JOYSTICK_TYPE_WHEEL,
+    SDL_JOYSTICK_TYPE_ARCADE_STICK,
+    SDL_JOYSTICK_TYPE_FLIGHT_STICK,
+    SDL_JOYSTICK_TYPE_DANCE_PAD,
+    SDL_JOYSTICK_TYPE_GUITAR,
+    SDL_JOYSTICK_TYPE_DRUM_KIT,
+    SDL_JOYSTICK_TYPE_ARCADE_PAD,
+    SDL_JOYSTICK_TYPE_THROTTLE
+}
+
+alias SDL_JoystickPowerLevel = i32;
+enum : SDL_JoystickPowerLevel
+{
+    SDL_JOYSTICK_POWER_UNKNOWN = -1,
+    SDL_JOYSTICK_POWER_EMPTY,
+    SDL_JOYSTICK_POWER_LOW,
+    SDL_JOYSTICK_POWER_MEDIUM,
+    SDL_JOYSTICK_POWER_FULL,
+    SDL_JOYSTICK_POWER_WIRED,
+    SDL_JOYSTICK_POWER_MAX
+}
+
+fn SDL_LockJoysticks();
+fn SDL_UnlockJoysticks();
 
 /* Function prototypes */
 /**
@@ -77,6 +106,47 @@ int  SDL_NumJoysticks();
  *  If no name can be found, this function returns NULL.
  */
 const char * SDL_JoystickNameForIndex(int device_index);
+
+/**
+ *  Return the GUID for the joystick at this index
+ *  This can be called before any joysticks are opened.
+ */
+fn SDL_JoystickGetDeviceGUID(device_index: i32) SDL_JoystickGUID;
+
+/**
+ *  Get the USB vendor ID of a joystick, if available.
+ *  This can be called before any joysticks are opened.
+ *  If the vendor ID isn't available this function returns 0.
+ */
+fn SDL_JoystickGetDeviceVendor(device_index: i32) Uint16;
+
+/**
+ *  Get the USB product ID of a joystick, if available.
+ *  This can be called before any joysticks are opened.
+ *  If the product ID isn't available this function returns 0.
+ */
+fn SDL_JoystickGetDeviceProduct(device_index: i32) Uint16;
+
+/**
+ *  Get the product version of a joystick, if available.
+ *  This can be called before any joysticks are opened.
+ *  If the product version isn't available this function returns 0.
+ */
+fn SDL_JoystickGetDeviceProductVersion(device_index: i32) Uint16;
+
+/**
+ *  Get the type of a joystick, if available.
+ *  This can be called before any joysticks are opened.
+ */
+fn SDL_JoystickGetDeviceType(device_index: i32) SDL_JoystickType;
+
+/**
+ *  Get the instance ID of a joystick.
+ *  This can be called before any joysticks are opened.
+ *  If the index is out of range, this function will return -1.
+ */
+fn SDL_JoystickGetDeviceInstanceID(device_index: i32) SDL_JoystickID;
+
 
 /**
  *  Open a joystick for use.
@@ -95,14 +165,32 @@ SDL_Joystick * SDL_JoystickOpen(int device_index);
 const char * SDL_JoystickName(SDL_Joystick * joystick);
 
 /**
- *  Return the GUID for the joystick at this index
- */
-SDL_JoystickGUID  SDL_JoystickGetDeviceGUID(int device_index);
-
-/**
  *  Return the GUID for this opened joystick
  */
 SDL_JoystickGUID  SDL_JoystickGetGUID(SDL_Joystick * joystick);
+
+/**
+ *  Get the USB vendor ID of an opened joystick, if available.
+ *  If the vendor ID isn't available this function returns 0.
+ */
+fn SDL_JoystickGetVendor(joystick: SDL_Joystick*) Uint16;
+
+/**
+ *  Get the USB product ID of an opened joystick, if available.
+ *  If the product ID isn't available this function returns 0.
+ */
+fn SDL_JoystickGetProduct(joystick: SDL_Joystick*) Uint16;
+
+/**
+ *  Get the product version of an opened joystick, if available.
+ *  If the product version isn't available this function returns 0.
+ */
+fn SDL_JoystickGetProductVersion(joystick: SDL_Joystick*) Uint16;
+
+/**
+ *  Get the type of an opened joystick.
+ */
+fn SDL_JoystickGetType(joystick: SDL_Joystick*) SDL_JoystickType;
 
 /**
  *  Return a string representation for this guid. pszGUID must point to at least 33 bytes
@@ -167,6 +255,9 @@ void  SDL_JoystickUpdate();
  */
 int  SDL_JoystickEventState(int state);
 
+enum SDL_JOYSTICK_AXIS_MAX =  32767;
+enum SDL_JOYSTICK_AXIS_MIN = -32768;
+
 /**
  *  Get the current state of an axis control on a joystick.
  *
@@ -176,6 +267,10 @@ int  SDL_JoystickEventState(int state);
  */
 Sint16  SDL_JoystickGetAxis(SDL_Joystick * joystick,
                                                    int axis);
+
+fn SDL_JoystickGetAxisInitialState(joystick: SDL_Joystick*, axis: i32, state: Sint16*) SDL_bool;
+
+fn SDL_JoystickFromInstanceID(joyid: SDL_JoystickID) SDL_Joystick*;
 
 /**
  *  \name Hat positions

@@ -171,6 +171,8 @@ struct SDL_AudioSpec
 alias SDL_AudioFilter = void function(void * cvt,
                                           SDL_AudioFormat format);
 
+enum SDL_AUDIOCVT_MAX_FILTERS = 9;
+
 /**
  *  A structure to hold a set of audio conversion filters and buffers.
  */
@@ -185,7 +187,7 @@ struct SDL_AudioCVT
     int len_cvt;                //< Length of converted audio buffer */
     int len_mult;               //< buffer must be len*len_mult big */
     double len_ratio;           //< Given len, final size is len*len_ratio */
-    SDL_AudioFilter[10] filters;       //< Filter list */
+    SDL_AudioFilter[SDL_AUDIOCVT_MAX_FILTERS+1] filters;       //< Filter list */
     int filter_index;           //< Current audio conversion function */
 }
 
@@ -405,8 +407,9 @@ void  SDL_FreeWAV(Uint8 * audio_buf);
  *  by SDL_ConvertAudio() to convert a buffer of audio data from one format
  *  to the other.
  *
- *  \return -1 if the format conversion is not supported, 0 if there's
- *  no conversion needed, or 1 if the audio filter is set up.
+ *  \return 0 if the format conversion is not supported, 0 if there's
+ *  no conversion needed, or 1 if the audio filter is set up, or
+ * -1 on error.
  */
 int  SDL_BuildAudioCVT(SDL_AudioCVT * cvt,
                                               SDL_AudioFormat src_format,
@@ -429,6 +432,28 @@ int  SDL_BuildAudioCVT(SDL_AudioCVT * cvt,
 int  SDL_ConvertAudio(SDL_AudioCVT * cvt);
 
 enum SDL_MIX_MAXVOLUME = 128;
+
+struct SDL_AudioStream {}
+
+fn SDL_NewAudioStream(src_format: SDL_AudioFormat,
+                                           src_channels: Uint8,
+                                           src_rate: i32,
+                                           dst_format: SDL_AudioFormat,
+                                           dst_channels: Uint8,
+                                           dst_rate: i32) SDL_AudioStream;
+
+fn SDL_AudioStreamPut(stream: SDL_AudioStream*, buf: const(void)*, len: i32) i32;
+
+fn SDL_AudioStreamGet(stream: SDL_AudioStream*, buf: void*, len: i32) i32;
+
+fn SDL_AudioStreamAvailable(stream: SDL_AudioStream*) i32;
+
+fn SDL_AudioStreamFlush(stream: SDL_AudioStream*) i32;
+
+fn SDL_AudioStreamClear(stream: SDL_AudioStream*);
+
+fn SDL_FreeAudioStream(stream: SDL_AudioStream*);
+
 /**
  *  This takes two audio buffers of the playing audio format and mixes
  *  them, performing addition, volume adjustment, and overflow clipping.

@@ -1050,3 +1050,4 @@ void SDL_GL_SwapWindow(SDL_Window * window);
  */
 void SDL_GL_DeleteContext(SDL_GLContext context);
 
+fn SDL_GL_GetDrawableSize(SDL_Window*, w: i32*, h: i32*);

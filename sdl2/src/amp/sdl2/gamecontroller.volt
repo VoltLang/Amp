@@ -108,24 +108,34 @@ struct SDL_GameControllerButtonBind
  */
 int  SDL_GameControllerAddMapping( const char* mappingString );
 
+
+fn SDL_GameControllerNumMappings() i32;
+
+/**
+ *  Get the mapping at a particular index.
+ *
+ *  \return the mapping string.  Must be freed with SDL_free().  Returns NULL if the index is out of range.
+ */
+fn SDL_GameControllerMappingForIndex(mapping_index: i32) char*;
+
 /**
  *  Get a mapping string for a GUID
  *
  *  \return the mapping string.  Must be freed with SDL_free.  Returns NULL if no mapping is available
  */
-char *  SDL_GameControllerMappingForGUID( SDL_JoystickGUID guid );
+fn SDL_GameControllerMappingForGUID( guid: SDL_JoystickGUID ) char*;
 
 /**
  *  Get a mapping string for an open GameController
  *
  *  \return the mapping string.  Must be freed with SDL_free.  Returns NULL if no mapping is available
  */
-char *  SDL_GameControllerMapping( SDL_GameController * gamecontroller );
+fn SDL_GameControllerMapping( gamecontroller: SDL_GameController * ) char*;
 
 /**
  *  Is the joystick on this index supported by the game controller interface?
  */
-SDL_bool  SDL_IsGameController(int joystick_index);
+fn SDL_IsGameController(joystick_index: i32) SDL_bool;
 
 
 /**
@@ -281,3 +291,20 @@ Uint8  SDL_GameControllerGetButton(SDL_GameController *gamecontroller,
  */
 void  SDL_GameControllerClose(SDL_GameController *gamecontroller);
 
+/**
+ *  Get the USB vendor ID of an opened controller, if available.
+ *  If the vendor ID isn't available this function returns 0.
+ */
+fn SDL_GameControllerGetVendor(gamecontroller: SDL_GameController*) Uint16;
+
+/**
+ *  Get the USB product ID of an opened controller, if available.
+ *  If the product ID isn't available this function returns 0.
+ */
+fn SDL_GameControllerGetProduct(gamecontroller: SDL_GameController*) Uint16;
+
+/**
+ *  Get the product version of an opened controller, if available.
+ *  If the product version isn't available this function returns 0.
+ */
+fn SDL_GameControllerGetProductVersion(gamecontroller: SDL_GameController*) Uint16;

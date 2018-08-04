@@ -90,6 +90,15 @@ struct SDL_Surface
 alias SDL_blit = int function(SDL_Surface * src, SDL_Rect * srcrect,
                          SDL_Surface * dst, SDL_Rect * dstrect);
 
+alias SDL_YUV_CONVERSION_MODE = i32;
+enum : SDL_YUV_CONVERSION_MODE
+{
+    SDL_YUV_CONVERSION_JPEG,        /**< Full range JPEG */
+    SDL_YUV_CONVERSION_BT601,       /**< BT.601 (the default) */
+    SDL_YUV_CONVERSION_BT709,       /**< BT.709 */
+    SDL_YUV_CONVERSION_AUTOMATIC    /**< BT.601 for SD content, BT.709 for HD content */
+}
+
 /**
  *  Allocate and free an RGB surface.
  *
@@ -348,6 +357,8 @@ int SDL_SaveBMP(SDL_Surface* surface, const(char)* s)
  void  SDL_GetClipRect(SDL_Surface * surface,
                                              SDL_Rect * rect);
 
+fn SDL_DuplicateSurface(surface: SDL_Surface*) SDL_Surface*;
+
 /**
  *  Creates a new surface of the specified format, and then copies and maps
  *  the given surface to it so the blit of the converted surface will be as
@@ -501,3 +512,17 @@ int SDL_BlitScaled(SDL_Surface* a, const SDL_Rect* b, SDL_Surface* c, SDL_Rect* 
     (SDL_Surface * src, SDL_Rect * srcrect,
     SDL_Surface * dst, SDL_Rect * dstrect);
 
+/**
+ *  \brief Set the YUV conversion mode
+ */
+fn SDL_SetYUVConversionMode(mode: SDL_YUV_CONVERSION_MODE);
+
+/**
+ *  \brief Get the YUV conversion mode
+ */
+fn SDL_GetYUVConversionMode() SDL_YUV_CONVERSION_MODE;
+
+/**
+ *  \brief Get the YUV conversion mode, returning the correct mode for the resolution when the current conversion mode is SDL_YUV_CONVERSION_AUTOMATIC
+ */
+fn SDL_GetYUVConversionModeForResolution(width: i32, height: i32) SDL_YUV_CONVERSION_MODE;

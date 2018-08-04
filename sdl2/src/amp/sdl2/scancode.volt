@@ -388,6 +388,9 @@ enum : SDL_Scancode
     SDL_SCANCODE_APP1 = 283,
     SDL_SCANCODE_APP2 = 284,
 
+    SDL_SCANCODE_AUDIOREWIND = 285,
+    SDL_SCANCODE_AUDIOFASTFORWARD = 286,
+
     /* *//*Walther keys*/
 
     /* Add any other keys here. */

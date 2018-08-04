@@ -852,3 +852,24 @@ SDL_bool SDL_RenderGetIntegerScale(SDL_Renderer * renderer);
  int  SDL_GL_UnbindTexture(SDL_Texture *texture);
 
 
+/**
+ *  \brief Get the CAMetalLayer associated with the given Metal renderer
+ *
+ *  \param renderer The renderer to query
+ *
+ *  \return CAMetalLayer* on success, or NULL if the renderer isn't a Metal renderer
+ *
+ *  \sa SDL_RenderGetMetalCommandEncoder()
+ */
+fn SDL_RenderGetMetalLayer(renderer: SDL_Renderer*) void*;
+
+/**
+ *  \brief Get the Metal command encoder for the current frame
+ *
+ *  \param renderer The renderer to query
+ *
+ *  \return id<MTLRenderCommandEncoder> on success, or NULL if the renderer isn't a Metal renderer
+ *
+ *  \sa SDL_RenderGetMetalLayer()
+ */
+fn SDL_RenderGetMetalCommandEncoder(renderer: SDL_Renderer*) void*;

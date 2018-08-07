@@ -166,10 +166,13 @@ public:
 		return &gInstance;
 	}
 
-	global fn tlnAssert(retval: bool, throwLocation: string = __FUNCTION__)
+	global fn tlnAssert(retval: bool, throwLocation: string = __LOCATION__)
 	{
 		if (!retval) {
 			error := TLN_GetLastError();
+			if (error == TLN_ERR_OK) {
+				return;
+			}
 			msg := .toString(TLN_GetErrorString(error));
 			msg = new "error '${msg}' thrown from '${throwLocation}'";
 			throw new TilengineException(msg);

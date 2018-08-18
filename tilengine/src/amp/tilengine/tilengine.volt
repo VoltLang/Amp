@@ -872,9 +872,9 @@ private:
 struct Tilemap
 {
 public:
-	global fn create(rows: i32, cols: i32, tiles: Tile[], bg: Colour, tileset: Tileset) Tilemap
+	global fn create(w: i32, h: i32, tiles: Tile[], bg: Colour, tileset: Tileset) Tilemap
 	{
-		retval := TLN_CreateTilemap(rows, cols, tiles.ptr, bg.asInteger(), tileset.mPtr);
+		retval := TLN_CreateTilemap(h, w, tiles.ptr, bg.asInteger(), tileset.mPtr);
 		Engine.tlnAssert(retval !is null);
 
 		tm: Tilemap;
@@ -910,12 +910,12 @@ public:
 		return tm;
 	}
 
-	@property fn cols() i32
+	@property fn width() i32
 	{
 		return TLN_GetTilemapCols(mPtr);
 	}
 
-	@property fn rows() i32
+	@property fn height() i32
 	{
 		return TLN_GetTilemapRows(mPtr);
 	}
@@ -929,22 +929,22 @@ public:
 		return ts;
 	}
 
-	fn setTile(row: i32, col: i32, tile: Tile*)
+	fn setTile(x: i32, y: i32, tile: Tile*)
 	{
-		ok := TLN_SetTilemapTile(mPtr, row, col, tile);
+		ok := TLN_SetTilemapTile(mPtr, y, x, tile);
 		Engine.tlnAssert(ok);
 	}
 
-	fn getTile(row: i32, col: i32, out tile: Tile)
+	fn getTile(x: i32, y: i32, out tile: Tile)
 	{
-		ok := TLN_GetTilemapTile(mPtr, row, col, &tile);
+		ok := TLN_GetTilemapTile(mPtr, y, x, &tile);
 		Engine.tlnAssert(ok);
 	}
 
-	fn copyTiles(srcRow: i32, srcCol: i32, rows: i32, cols: i32,
-		dst: Tilemap, dstRow: i32, dstCol: i32)
+	fn copyTiles(srcX: i32, srcY: i32, w: i32, h: i32,
+		dst: Tilemap, dstX: i32, dstY: i32)
 	{
-		ok := TLN_CopyTiles(mPtr, srcRow, srcCol, rows, cols, dst.mPtr, dstRow, dstCol);
+		ok := TLN_CopyTiles(mPtr, srcY, srcX, h, w, dst.mPtr, dstY, dstX);
 		Engine.tlnAssert(ok);
 	}
 

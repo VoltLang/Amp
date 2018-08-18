@@ -2,7 +2,7 @@ module amp.tilengine.c.tilengine;
 extern (C):
 
 enum TILENGINE_VER_MAJ = 2;
-enum TILENGINE_VER_MIN = 0;
+enum TILENGINE_VER_MIN = 1;
 enum TILENGINE_VER_REV = 0;
 enum TILENGINE_VER_HEADER_VERSION =
 	((TILENGINE_VER_MAJ << 16) | (TILENGINE_VER_MIN << 8) | TILENGINE_VER_REV);
@@ -209,6 +209,13 @@ enum : TLN_Error
 	TLN_MAX_ERR,
 }
 
+alias TLN_LogLevel = i32;
+enum : TLN_LogLevel
+{
+	TLN_LOG_NONE,     //!< Don't print anything (default).
+	TLN_LOG_ERRORS,   //!< Print only runtime errors.
+	TLN_LOG_VERBOSE,  //!< Print everything.
+}
 
 /** 
  * \anchor group_setup
@@ -241,6 +248,7 @@ fn TLN_BeginFrame (time: i32);
 fn TLN_DrawNextScanline () bool;
 fn TLN_SetLoadPath (path: const(char)*);
 fn TLN_SetCustomBlendFunction (blend_function: fn!C(u8, u8) u8);
+fn TLN_SetLogLevel(logLevel: TLN_LogLevel);
 
 /**@}*/
 

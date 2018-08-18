@@ -97,6 +97,13 @@ enum BlendMode
 	Mix    = BLEND_MIX50
 }
 
+enum LogLevel
+{
+	None    = TLN_LOG_NONE,
+	Errors  = TLN_LOG_ERRORS,
+	Verbose = TLN_LOG_VERBOSE,
+}
+
 alias Affine = TLN_Affine;
 alias SequenceFrame = TLN_SequenceFrame;
 alias ColourStrip = TLN_ColorStrip;  // to the tune of 'rule brittania'
@@ -262,6 +269,11 @@ public:
 		index := TLN_GetAvailableSprite();
 		Engine.tlnAssert(index != -1);
 		return sprites[index];
+	}
+
+	@property fn logLevel(val: LogLevel)
+	{
+		TLN_SetLogLevel(val);
 	}
 
 private:
